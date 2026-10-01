@@ -75,4 +75,32 @@ public class ZombiesManager {
 	public static int getRemainingZombies() {
 		return remainingZombies;
 	}
+
+	public boolean doZombiesReachedTheHouse() {
+		return false; //Placeholder
+	}
+
+	public void damageZombie(Position p, int damage) {
+
+	}
+
+	public String iconInPosition(Position p) {
+		return ""; //Placeholder
+	}
+
+	public boolean isEmpty(Position p) {
+		return false; //Placeholder
+	}
+
+	public void update() {
+
+	}
+
+	public boolean allZombiesWereKilled() {
+		return false; //Placeholder
+	}
+
+	public void removeDead() {
+
+	}
 }

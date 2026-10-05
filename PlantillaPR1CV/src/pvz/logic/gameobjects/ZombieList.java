@@ -4,6 +4,7 @@ import utils.Position;
 public class ZombieList {
 
 	private int numberOfZombies;
+	private Zombie[]zombies;
 
 	public ZombieList() {
 

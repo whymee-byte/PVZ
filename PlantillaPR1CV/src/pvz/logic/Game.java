@@ -15,6 +15,9 @@ public class Game {
 	private Random rand;
 	private boolean playerQuit;
 	private Level level;
+	private ZombiesManager zombieManager;
+	private PeashooterList peashooterList;
+	private SunflowerList sunflowerList;
 	
 	public Game(Long seed, Level level){
 		this.longSeed=seed;

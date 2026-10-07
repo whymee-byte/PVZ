@@ -6,6 +6,7 @@ import pvz.logic.gameobjects.Sunflower;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
 import pvz.view.Messages;
+import utils.Position;
 
 /**
  * Input/output coordinator of the game (the C in MVC).
@@ -41,6 +42,9 @@ public class Controller {
 			else if(Command[0].equals("list")) {
 				view.showMessage(Sunflower.getDescription());
 				view.showMessage(Peashooter.getDescription());
+			}
+			else if (Command[0].equals("add")) {
+				game.addGameObject(Command[1], new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3])));
 			}
 			System.out.println();
 			Command=view.getPrompt();

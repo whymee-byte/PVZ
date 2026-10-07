@@ -3,6 +3,7 @@ import java.util.Random;
 
 import pvz.control.Level;
 import utils.Position;
+import pvz.logic.gameobjects.*;
 
 public class Game {
 	public final static int NUM_ROWS = 4;
@@ -25,7 +26,8 @@ public class Game {
 		this.coins=INITIAL_COINS;
 		this.rand = new Random(seed);
 		this.level=level;
-		
+		this.peashooterList = new PeashooterList();
+		this.sunflowerList = new SunflowerList();
 	}
 	
 	public String positionToString(Position position) {
@@ -50,5 +52,12 @@ public class Game {
 	
 	public int getRemainingZombies() {
 		return ZombiesManager.getRemainingZombies();
+	}
+
+	public void addGameObject(String plantType, Position position) {
+		if (plantType.equals("peashooter"))
+			peashooterList.add(new Peashooter(position, this));
+		else if (plantType.equals("sunflower"))
+			sunflowerList.add(new Sunflower(position, this));
 	}
 }

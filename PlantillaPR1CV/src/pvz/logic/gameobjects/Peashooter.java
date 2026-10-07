@@ -12,7 +12,9 @@ public class Peashooter {
 	private Game game;
 	
 	public Peashooter(Position position,Game game) {
-		health=INITIAL_HEALTH;
+		this.position = position;
+		this.game = game;
+		this.health=INITIAL_HEALTH;
 	}
 	public static String getDescription() {
 		return String.format(Messages.PEASHOOTER_DESCRIPTION, COST, DAMAGE, INITIAL_HEALTH);

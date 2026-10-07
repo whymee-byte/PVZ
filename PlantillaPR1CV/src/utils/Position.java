@@ -17,7 +17,7 @@ public class Position {
 		return col;
 	}
 	
-//	public String toString() {
-//		
-//	}
+	public String toString() {
+		return "";	//Placeholder
+	}
 }

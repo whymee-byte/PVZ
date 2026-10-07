@@ -11,7 +11,7 @@ public class ZombieList {
 	}
 
 	public int size() {
-		return 0; //Placeholder
+		return numberOfZombies;
 	}
 
 	public String iconInPosition(Position p) {

@@ -25,4 +25,10 @@ public class PeashooterList {
 		while (i < numberOfPeashooters && !peashooters[i].isInPosition(position)) i++;
 		return i == numberOfPeashooters;
 	}
+	
+	public String iconInPosition(Position position) {
+		int i = 0;
+		while (i < numberOfPeashooters && !peashooters[i].isInPosition(position)) i++;
+		return peashooters[i].getIcon();
+	}
 }

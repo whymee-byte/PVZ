@@ -16,32 +16,40 @@ public class Peashooter {
 		this.game = game;
 		this.health=INITIAL_HEALTH;
 	}
+	
 	public static String getDescription() {
 		return String.format(Messages.PEASHOOTER_DESCRIPTION, COST, DAMAGE, INITIAL_HEALTH);
 	}
+	
 	public String getIcon() {
-		return "";
+		return "P[".concat(Integer.toString(health)).concat("]");
 	}
+	
 	public boolean isInPosition(Position position) {
 		return position.column() == this.position.column() && position.row() == this.position.row();
 	}
+	
 	public boolean isAlive() {
 		return true;
 	}
+	
 	public void update() {
 		
 	}
+	
 	private void shoot() {
 		
 	}
+	
 	public void receiveDamage(int damage) {
 		
 	}
+	
 	public String shortName() {
 		return "P";
 	}
+	
 	public String longName() {
 		return "Peashooter";
 	}
-	
 }

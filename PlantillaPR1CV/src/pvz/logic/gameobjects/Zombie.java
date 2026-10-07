@@ -52,4 +52,8 @@ public class Zombie {
 	private void attack() {
 
 	}
+	
+	public String getIcon() {
+		return "Z[".concat(Integer.toString(health)).concat("]");
+	}
 }

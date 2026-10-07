@@ -28,10 +28,14 @@ public class Game {
 		this.level=level;
 		this.peashooterList = new PeashooterList();
 		this.sunflowerList = new SunflowerList();
+		this.zombieManager = new ZombiesManager(this, this.level, this.rand);
 	}
 	
 	public String positionToString(Position position) {
-		return position.toString();
+		if (!sunflowerList.isEmpty(position)) return sunflowerList.iconInPosition(position);
+		if (!peashooterList.isEmpty(position)) return peashooterList.iconInPosition(position);
+		if (!zombieManager.isEmpty(position)) return zombieManager.iconInPosition(position);
+		return "";
 	}
 	
 	public static Position newZombiePosition(int row) {

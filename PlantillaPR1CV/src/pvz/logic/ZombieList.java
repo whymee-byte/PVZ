@@ -15,8 +15,10 @@ public class ZombieList {
 		return numberOfZombies;
 	}
 
-	public String iconInPosition(Position p) {
-		return ""; //Placeholder
+	public String iconInPosition(Position position) {
+		int i = 0;
+		while (i < numberOfZombies && !zombies[i].isInPosition(position)) i++;
+		return zombies[i].getIcon();
 	}
 
 	public void add(Zombie z) {

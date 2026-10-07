@@ -25,4 +25,10 @@ public class SunflowerList {
 		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
 		return i == numberOfSunflowers;
 	}
+	
+	public String iconInPosition(Position position) {
+		int i = 0;
+		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
+		return sunflowers[i].getIcon();
+	}
 }

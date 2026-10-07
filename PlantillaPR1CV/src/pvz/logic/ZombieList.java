@@ -1,4 +1,5 @@
-package pvz.logic.gameobjects;
+package pvz.logic;
+import pvz.logic.gameobjects.Zombie;
 import utils.Position;
 
 public class ZombieList {

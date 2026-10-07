@@ -44,7 +44,8 @@ public class Controller {
 				view.showMessage(Peashooter.getDescription());
 			}
 			else if (Command[0].equals("add")) {
-				game.addGameObject(Command[1], new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3])));
+				Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
+				game.addGameObject(Command[1], pos);
 			}
 			System.out.println();
 			Command=view.getPrompt();

@@ -55,9 +55,9 @@ public class Game {
 	}
 
 	public void addGameObject(String plantType, Position position) {
-		if (plantType.equals("peashooter"))
+		if (plantType.equals("peashooter") || plantType.equals("p"))
 			peashooterList.add(new Peashooter(position, this));
-		else if (plantType.equals("sunflower"))
+		else if (plantType.equals("sunflower") || plantType.equals("s"))
 			sunflowerList.add(new Sunflower(position, this));
 	}
 }

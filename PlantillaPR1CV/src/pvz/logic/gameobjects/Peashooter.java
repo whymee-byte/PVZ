@@ -23,7 +23,7 @@ public class Peashooter {
 		return "";
 	}
 	public boolean isInPosition(Position position) {
-		return true;
+		return position.column() == this.position.column() && position.row() == this.position.row();
 	}
 	public boolean isAlive() {
 		return true;

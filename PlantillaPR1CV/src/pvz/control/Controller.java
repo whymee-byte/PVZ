@@ -44,7 +44,9 @@ public class Controller {
 				view.showMessage(Peashooter.getDescription());
 			}
 			else if (Command[0].equals("add")) {
+				if (Command.length < 4) view.showMessage(Messages.COMMAND_PARAMETERS_MISSING);
 				Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
+				if (!game.isInsideBoard(pos)) view.showMessage(Messages.INVALID_POSITION);
 				game.addGameObject(Command[1], pos);
 			}
 			System.out.println();

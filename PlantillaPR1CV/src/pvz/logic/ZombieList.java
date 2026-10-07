@@ -27,8 +27,10 @@ public class ZombieList {
 		return false; //Placeholder
 	}
 
-	public boolean isEmpty(Position p) {
-		return false; //Placeholder
+	public boolean isEmpty(Position position) {
+		int i = 0;
+		while (i < numberOfZombies && !zombies[i].isInPosition(position)) i++;
+		return i == numberOfZombies;
 	}
 
 	public void update() {

@@ -88,7 +88,7 @@ public class ZombiesManager {
 	}
 
 	public boolean isEmpty(Position p) {
-		return false; //Placeholder
+		return zombies.isEmpty(p);
 	}
 
 	public void update() {

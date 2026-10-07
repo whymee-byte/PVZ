@@ -17,8 +17,8 @@ public class Zombie {
 
 	}
 
-	public boolean isInPosition(Position p) {
-		return false; //Placeholder
+	public boolean isInPosition(Position position) {
+		return position.column() == this.position.column() && position.row() == this.position.row();
 	}
 
 	public boolean isHorizontallyAligned(Position p) {

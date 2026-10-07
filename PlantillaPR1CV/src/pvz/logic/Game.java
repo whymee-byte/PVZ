@@ -37,9 +37,9 @@ public class Game {
 	public static Position newZombiePosition(int row) {
 		return new Position(row, NUM_COLS - 1);
 	}
-//	todavia sin hacer 
+
 	public boolean isEmpty(Position p) {
-		return true;
+		return zombieManager.isEmpty(p) && peashooterList.isEmpty(p) && sunflowerList.isEmpty(p);
 	}
 	
 	public int getCycles() {
@@ -59,5 +59,10 @@ public class Game {
 			peashooterList.add(new Peashooter(position, this));
 		else if (plantType.equals("sunflower") || plantType.equals("s"))
 			sunflowerList.add(new Sunflower(position, this));
+	}
+	
+	public boolean isInsideBoard(Position p) {
+		if (p.column() < 0 || p.column() >= NUM_COLS || p.row() < 0 || p.row() >= NUM_ROWS) return false;
+		return true;
 	}
 }

@@ -1,6 +1,8 @@
 package pvz.control;
 
 import pvz.logic.Game;
+import pvz.logic.gameobjects.Peashooter;
+import pvz.logic.gameobjects.Sunflower;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
 import pvz.view.Messages;
@@ -30,6 +32,20 @@ public class Controller {
 	public void run() {
 		// TODO fill your code
 		view.showGame();
+		String Command[]=view.getPrompt();
+		while(!Command[0].equals("exit")) {
+			
+			if(Command[0].equals("help")) {
+				view.showMessage(Messages.HELP);
+			}
+			else if(Command[0].equals("list")) {
+				view.showMessage(Sunflower.getDescription());
+				view.showMessage(Peashooter.getDescription());
+			}
+			System.out.println();
+			Command=view.getPrompt();
+		}
+		view.showEndMessage();
 	}
 
 }

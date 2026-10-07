@@ -87,11 +87,11 @@ public class ZombiesManager {
 	}
 
 	public String iconInPosition(Position p) {
-		return ""; //Placeholder
+		return zombies.iconInPosition(p); //Placeholder
 	}
 
 	public boolean isEmpty(Position p) {
-		return true; //Placeholder
+		return zombies.isEmpty(p);
 	}
 
 	public void update() {

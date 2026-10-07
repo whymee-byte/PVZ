@@ -3,6 +3,7 @@ package pvz.logic;
 import java.util.Arrays;
 
 import pvz.logic.gameobjects.Sunflower;
+import utils.Position;
 
 public class SunflowerList {
 	private int numberOfSunflowers;
@@ -17,5 +18,17 @@ public class SunflowerList {
 		if (numberOfSunflowers >= sunflowers.length) sunflowers = Arrays.copyOf(sunflowers, numberOfSunflowers + 1);
 		sunflowers[numberOfSunflowers] = s;
 		numberOfSunflowers++;
+	}
+	
+	public boolean isEmpty(Position position) {
+		int i = 0;
+		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
+		return i == numberOfSunflowers;
+	}
+	
+	public String iconInPosition(Position position) {
+		int i = 0;
+		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
+		return sunflowers[i].getIcon();
 	}
 }

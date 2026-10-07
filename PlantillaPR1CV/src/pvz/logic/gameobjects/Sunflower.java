@@ -20,4 +20,12 @@ public class Sunflower {
 	public static String getDescription() {
 		return String.format(Messages.PEASHOOTER_DESCRIPTION, COST, DAMAGE, INITIAL_HEALTH);
 	}
+	
+	public boolean isInPosition(Position position) {
+		return position.column() == this.position.column() && position.row() == this.position.row();
+	}
+	
+	public String getIcon() {
+		return "S[".concat(Integer.toString(health)).concat("]");
+	}
 }

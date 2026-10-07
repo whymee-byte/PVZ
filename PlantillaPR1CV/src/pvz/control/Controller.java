@@ -44,8 +44,10 @@ public class Controller {
 			}
 
 			else if (Command[0].equals("add")||Command[0].equals("a")) {
+				if (Command.length < 4) view.showMessage(Messages.COMMAND_PARAMETERS_MISSING);
 				Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
-				game.addGameObject(Command[1], pos);
+				if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) view.showMessage(Messages.INVALID_POSITION);
+				else game.addGameObject(Command[1], pos);
 				view.showGame();
 			}
 			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
@@ -55,7 +57,7 @@ public class Controller {
 				game.reset();
 				view.showGame();
 			}else {
-				view.showError(Messages.UNKNOWN_COMMAND);
+				view.showError(null);
 			}
 			System.out.println();
 			Command=view.getPrompt();

@@ -14,11 +14,14 @@ public class Zombie {
 	
 
 	public Zombie(Position position, Game game) {
-
+		this.health=INITIAL_HEALTH;
+		this.cyclesSinceLastMovement=0;
+		this.position=position;
+		this.game=game;
 	}
 
-	public boolean isInPosition(Position p) {
-		return false; //Placeholder
+	public boolean isInPosition(Position position) {
+		return position.column() == this.position.column() && position.row() == this.position.row();
 	}
 
 	public boolean isHorizontallyAligned(Position p) {
@@ -51,5 +54,9 @@ public class Zombie {
 
 	private void attack() {
 
+	}
+	
+	public String getIcon() {
+		return "Z[".concat(Integer.toString(health)).concat("]");
 	}
 }

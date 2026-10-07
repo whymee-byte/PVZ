@@ -34,18 +34,28 @@ public class Controller {
 		// TODO fill your code
 		view.showGame();
 		String Command[]=view.getPrompt();
-		while(!Command[0].equals("exit")) {
+		while(!Command[0].equals("exit")||Command[0].equals("e")) {
 			
-			if(Command[0].equals("help")) {
+			if(Command[0].equals("help")||Command[0].equals("h")) {
 				view.showMessage(Messages.HELP);
 			}
-			else if(Command[0].equals("list")) {
-				view.showMessage(Sunflower.getDescription());
-				view.showMessage(Peashooter.getDescription());
+			else if(Command[0].equals("list")||Command[0].equals("l")) {
+				view.showMessage(Messages.LIST);
 			}
-			else if (Command[0].equals("add")) {
+
+			else if (Command[0].equals("add")||Command[0].equals("a")) {
 				Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
 				game.addGameObject(Command[1], pos);
+				view.showGame();
+			}
+			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
+				game.update();
+				view.showGame();
+			}else if(Command[0].equals("rest")||Command[0].equals("r")) {
+				game.reset();
+				view.showGame();
+			}else {
+				view.showError(Messages.UNKNOWN_COMMAND);
 			}
 			System.out.println();
 			Command=view.getPrompt();

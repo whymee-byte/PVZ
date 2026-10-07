@@ -66,6 +66,9 @@ public class ZombiesManager {
 
 		if(canAdd) {
 			// TODO fill your code
+			Zombie z=new Zombie(zombiePosition,game);
+			zombies.add(z);
+			remainingZombies--;
 		}
 		return canAdd;
 	}
@@ -88,7 +91,7 @@ public class ZombiesManager {
 	}
 
 	public boolean isEmpty(Position p) {
-		return false; //Placeholder
+		return true; //Placeholder
 	}
 
 	public void update() {

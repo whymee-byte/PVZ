@@ -17,3 +17,23 @@
 2026-10-08 07:22:00.985: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-10-08 07:22:00.985: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
 2026-10-08 07:22:30.864: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-08 12:01:37.663: [INFO] CurrentProfilePath: C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-08 12:01:37.663: [INFO] Profiles total count: 1
+2026-10-08 12:01:37.663: [INFO] Profile: name=Perfil 1 path=C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-08T07:22:30.784Z
+2026-10-08 12:01:37.663: [INFO] LastUsedProfileDir: C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-08 12:01:37.663: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-08T07:22:30.784Z
+2026-10-08 12:01:37.663: [INFO] OnDoneLoading sync enabled: 0
+2026-10-08 12:01:37.663: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-08 12:01:37.663: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-08 12:01:37.663: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-08 12:01:46.427: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-08 12:01:46.808: [INFO] CurrentProfilePath: C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-08 12:01:46.808: [INFO] Profiles total count: 1
+2026-10-08 12:01:46.808: [INFO] Profile: name=Perfil 1 path=C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-08T12:01:38.466Z
+2026-10-08 12:01:46.808: [INFO] LastUsedProfileDir: C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-08 12:01:46.808: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-08T12:01:38.466Z
+2026-10-08 12:01:46.808: [INFO] OnDoneLoading sync enabled: 0
+2026-10-08 12:01:46.808: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-08 12:01:46.808: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-08 12:01:46.808: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-08 12:01:57.753: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

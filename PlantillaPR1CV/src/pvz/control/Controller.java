@@ -34,7 +34,7 @@ public class Controller {
 		// TODO fill your code
 		view.showGame();
 		String Command[]=view.getPrompt();
-		while(!Command[0].equals("exit")||Command[0].equals("e")) {
+		while(!Command[0].equals("exit")&&!Command[0].equals("e")) {
 			
 			if(Command[0].equals("help")||Command[0].equals("h")) {
 				view.showMessage(Messages.HELP);
@@ -45,10 +45,14 @@ public class Controller {
 
 			else if (Command[0].equals("add")||Command[0].equals("a")) {
 				if (Command.length < 4) view.showMessage(Messages.COMMAND_PARAMETERS_MISSING);
-				Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
-				if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) view.showMessage(Messages.INVALID_POSITION);
-				else game.addGameObject(Command[1], pos);
-				view.showGame();
+				else { Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
+					if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) view.showMessage(Messages.INVALID_POSITION);
+					else if(((Command[1].equals("peashooter") || Command[1].equals("p")) && game.getCoins() >= Peashooter.COST) || ((Command[1].equals("sunflower") || Command[1].equals("s")) && game.getCoins() >= Sunflower.COST)) {
+						game.addGameObject(Command[1], pos);
+						view.showGame();
+					}
+					else view.showMessage(Messages.NOT_ENOUGH_COINS);
+				}
 			}
 			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
 				game.update();

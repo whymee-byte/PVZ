@@ -29,7 +29,7 @@ public class Zombie {
 	}
 
 	public boolean isVerticallyAligned(Position p) {
-		return false; //Placeholder
+		return position.isVerticallyAligned(p);
 	}
 
 	public void receiveAttack(int damage) {
@@ -38,14 +38,12 @@ public class Zombie {
 
 	public void update() {
 		cyclesSinceLastMovement++;
-		if( canMove()) {
+		if(canMove()) {
 			if (cyclesSinceLastMovement >= MOVE_EVERY_CYCLES ) {
 				cyclesSinceLastMovement=0;
 				move();
 			}
-		} else {
-			game.attackZombie(position.left(), DAMAGE);
-		}
+		} else attack();
 	}
 
 	private boolean canMove() {
@@ -61,7 +59,7 @@ public class Zombie {
 	}
 
 	private void attack() {
-
+		game.attackZombie(position.left(), DAMAGE);
 	}
 	
 	public String getIcon() {

@@ -4,7 +4,7 @@ import utils.Position;
 import pvz.logic.Game;
 
 public class Sunflower {
-	private static final int COST = 20;
+	public static final int COST = 20;
 	private static final int DAMAGE = 0;
 	private static final int INITIAL_HEALTH = 1;
 	private static final int GENERATED_SUN_COINS = 10;

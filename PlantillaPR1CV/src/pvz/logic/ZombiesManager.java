@@ -5,6 +5,7 @@ import java.util.Random;
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
 import utils.Position;
+import pvz.logic.ZombieList;
 
 /**
  * Manages the full lifecycle of zombies for a game session.
@@ -79,7 +80,7 @@ public class ZombiesManager {
 	}
 
 	public boolean doZombiesReachedTheHouse() {
-		return false; //Placeholder
+		return zombies.anyInColumn(0);
 	}
 
 	public void damageZombie(Position p, int damage) {
@@ -87,7 +88,7 @@ public class ZombiesManager {
 	}
 
 	public String iconInPosition(Position p) {
-		return zombies.iconInPosition(p); //Placeholder
+		return zombies.iconInPosition(p);
 	}
 
 	public boolean isEmpty(Position p) {
@@ -99,7 +100,7 @@ public class ZombiesManager {
 	}
 
 	public boolean allZombiesWereKilled() {
-		return false; //Placeholder
+		return remainingZombies == 0 && zombies.size() == 0;
 	}
 
 	public void removeDead() {

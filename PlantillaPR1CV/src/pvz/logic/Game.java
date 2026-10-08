@@ -4,6 +4,7 @@ import java.util.Random;
 import pvz.control.Level;
 import utils.Position;
 import pvz.logic.gameobjects.*;
+import pvz.logic.*;
 
 public class Game {
 	public final static int NUM_ROWS = 4;
@@ -44,7 +45,7 @@ public class Game {
 	}
 	
 	public boolean hasGameFinished() {
-		return true; //Placeholder
+		return zombieManager.allZombiesWereKilled() || zombieManager.allZombiesWereKilled();
 	}
 	
 	public boolean playerWins() {
@@ -52,7 +53,7 @@ public class Game {
 	}
 	
 	public boolean playerQuits() {
-		return true;
+		return true; //Placeholder
 	}
 	
 	public void quit() {
@@ -77,8 +78,8 @@ public class Game {
 		coins += amount;
 	}
 	
-	private void buyWithCoins() {
-		
+	private void buyWithCoins(int cost) {
+		coins -= cost;
 	}
 	
 	public void attackZombie(Position p,int damage) {
@@ -86,7 +87,6 @@ public class Game {
 			sunflowerList.receiveDamage(p,damage);
 		}else if(!peashooterList.isEmpty(p)) {
 			peashooterList.receiveDamage(p,damage);
-			
 		}
 	}
 	
@@ -115,12 +115,15 @@ public class Game {
 	}
 
 	public void addGameObject(String plantType, Position position) {
-		if (plantType.equals("peashooter") || plantType.equals("p"))
+		if (plantType.equals("peashooter") || plantType.equals("p")) {
 			peashooterList.add(new Peashooter(position, this));
-		else if (plantType.equals("sunflower") || plantType.equals("s"))
+			buyWithCoins(Peashooter.COST);
+		}
+		else if (plantType.equals("sunflower") || plantType.equals("s")) {
 			sunflowerList.add(new Sunflower(position, this));
+			buyWithCoins(Sunflower.COST);
+		}
 	}
-	
 	
 	public boolean isInsideBoard(Position p) {
 		if (p.column() < 0 || p.column() >= NUM_COLS || p.row() < 0 || p.row() >= NUM_ROWS) return false;

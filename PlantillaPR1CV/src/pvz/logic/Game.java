@@ -9,7 +9,7 @@ import pvz.logic.*;
 public class Game {
 	public final static int NUM_ROWS = 4;
 	public final static int NUM_COLS = 8;
-	public final static int INITIAL_COINS=50;
+	public final static int INITIAL_COINS = 50;
 	
 	private int cycles;
 	private int coins;
@@ -22,15 +22,15 @@ public class Game {
 	private SunflowerList sunflowerList;
 	
 	public Game(Long seed, Level level){
-		this.longSeed=seed;
-		this.cycles=0;
-		this.coins=INITIAL_COINS;
+		this.longSeed = seed;
+		this.cycles = 0;
+		this.coins = INITIAL_COINS;
 		this.rand = new Random(seed);
-		this.level=level;
+		this.level = level;
 		this.peashooterList = new PeashooterList();
 		this.sunflowerList = new SunflowerList();
-		this.zombieManager=new ZombiesManager(this,level,rand);
-		this.playerQuit=false;
+		this.zombieManager = new ZombiesManager(this,level,rand);
+		this.playerQuit = false;
 	}
 	
 	public String positionToString(Position position) {
@@ -71,7 +71,12 @@ public class Game {
 	}
 	
 	public void reset() {
-		
+		cycles = 0;
+		coins = INITIAL_COINS;
+		rand = new Random(this.longSeed);
+		peashooterList = new PeashooterList();
+		sunflowerList = new SunflowerList();
+		zombieManager = new ZombiesManager(this,level,rand);
 	}
 	
 	public void generateCoins(int amount) {

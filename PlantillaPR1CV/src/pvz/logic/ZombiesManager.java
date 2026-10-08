@@ -83,7 +83,7 @@ public class ZombiesManager {
 	}
 
 	public void damageZombie(Position p, int damage) {
-
+		zombies.damage(p, damage);
 	}
 
 	public String iconInPosition(Position p) {
@@ -95,7 +95,7 @@ public class ZombiesManager {
 	}
 
 	public void update() {
-
+		zombies.update();
 	}
 
 	public boolean allZombiesWereKilled() {
@@ -103,6 +103,6 @@ public class ZombiesManager {
 	}
 
 	public void removeDead() {
-
+		zombies.removeDead();
 	}
 }

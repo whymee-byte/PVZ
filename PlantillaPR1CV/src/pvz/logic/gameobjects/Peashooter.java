@@ -30,19 +30,19 @@ public class Peashooter {
 	}
 	
 	public boolean isAlive() {
-		return true;
+		return health > 0;
 	}
 	
 	public void update() {
-		
+		shoot();
 	}
 	
 	private void shoot() {
-		
+		game.attackPlant(position, DAMAGE);
 	}
 	
 	public void receiveDamage(int damage) {
-		
+		health-=damage;
 	}
 	
 	public String shortName() {

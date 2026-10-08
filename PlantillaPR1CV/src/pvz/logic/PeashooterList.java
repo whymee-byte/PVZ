@@ -31,4 +31,27 @@ public class PeashooterList {
 		while (i < numberOfPeashooters && !peashooters[i].isInPosition(position)) i++;
 		return peashooters[i].getIcon();
 	}
+	
+	public void update() {
+		for (int i = 0; i < numberOfPeashooters; i++) peashooters[i].update();
+	}
+	public void receiveDamage(Position p,int damage) {
+		int i=0;
+		while(i<numberOfPeashooters && !peashooters[i].isInPosition(p)) {
+			i++;
+		}
+		peashooters[i].receiveDamage(damage);
+		
+	}
+	public void removeDead() {
+		for (int i = 0; i < numberOfPeashooters; i++) if (!peashooters[i].isAlive()) {
+			removeFromIndex(i);
+			i--;
+		}
+	}
+	private void removeFromIndex(int index) {
+		int i = index;
+		while (i < numberOfPeashooters - 1) peashooters[i] = peashooters[i+1];
+		numberOfPeashooters--;
+	}
 }

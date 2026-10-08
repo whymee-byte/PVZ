@@ -38,38 +38,60 @@ public class Game {
 		if (!zombieManager.isEmpty(position)) return zombieManager.iconInPosition(position);
 		return "";
 	}
+	
 	public boolean checkGameObject(String objectName) {
-		return true;
+		return true; //Placeholder
 	}
+	
 	public boolean hasGameFinished() {
-		return true;
+		return true; //Placeholder
 	}
+	
 	public boolean playerWins() {
-		return true;
+		return true; //Placeholder
 	}
+	
 	public boolean playerQuits() {
 		return true;
 	}
+	
 	public void quit() {
 		
 	}
+	
 	public void update() {
 		zombieManager.addZombie();
+		sunflowerList.update();
+		peashooterList.update();
+		zombieManager.removeDead();
+		zombieManager.update();
+		sunflowerList.removeDead();
+		peashooterList.removeDead();
 	}
+	
 	public void reset() {
 		
 	}
+	
 	public void generateCoins(int amount) {
-		
+		coins += amount;
 	}
+	
 	private void buyWithCoins() {
 		
 	}
+	
 	public void attackZombie(Position p,int damage) {
-		
+		if (!sunflowerList.isEmpty(p)) {
+			sunflowerList.receiveDamage(p,damage);
+		}else if(!peashooterList.isEmpty(p)) {
+			peashooterList.receiveDamage(p,damage);
+			
+		}
 	}
+	
 	public void attackPlant(Position p,int damage) {
-		
+		zombieManager.damageZombie(p, damage);
 	}
 	
 	public static Position newZombiePosition(int row) {

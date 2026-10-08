@@ -31,4 +31,29 @@ public class SunflowerList {
 		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
 		return sunflowers[i].getIcon();
 	}
+	
+	public void update() {
+		for (int i = 0; i < numberOfSunflowers; i++) sunflowers[i].update();
+	}
+	
+	public void receiveDamage(Position p, int damage) {
+		int i=0;
+		while(i<numberOfSunflowers && !sunflowers[i].isInPosition(p)) {
+			i++;
+		}
+		sunflowers[i].receiveDamage(damage);
+		
+	}
+	public void removeDead() {
+		for (int i = 0; i < numberOfSunflowers; i++) if (!sunflowers[i].isAlive()) {
+			removeFromIndex(i);
+			i--;
+		}
+	}
+	private void removeFromIndex(int index) {
+		int i = index;
+		while (i < numberOfSunflowers - 1) sunflowers[i] = sunflowers[i+1];
+		numberOfSunflowers--;
+	}
+	
 }

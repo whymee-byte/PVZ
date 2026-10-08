@@ -34,7 +34,11 @@ public class ZombieList {
 	}
 
 	public boolean damage(Position p, int damage) {
-		return false; //Placeholder
+		int i = 0;
+		while(i < numberOfZombies && !zombies[i].isHorizontallyAligned(p)) i++;
+		if(i==numberOfZombies)return false;
+		zombies[i].receiveAttack(damage);
+		return true;
 	}
 
 	public boolean isEmpty(Position position) {
@@ -44,11 +48,14 @@ public class ZombieList {
 	}
 
 	public void update() {
-
+		for (int i = 0; i < numberOfZombies; i++) zombies[i].update();
 	}
 
 	public void removeDead() {
-		
+		for (int i = 0; i < numberOfZombies; i++) if (!zombies[i].isAlive()) {
+			removeFromIndex(i);
+			i--;
+		}
 	}
 
 	public boolean anyInColumn(int column) {
@@ -56,6 +63,8 @@ public class ZombieList {
 	}
 
 	private void removeFromIndex(int index) {
-
+		int i = index;
+		while (i < numberOfZombies - 1) zombies[i] = zombies[i+1];
+		numberOfZombies--;
 	}
 }

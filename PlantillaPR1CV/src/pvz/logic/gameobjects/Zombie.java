@@ -25,7 +25,7 @@ public class Zombie {
 	}
 
 	public boolean isHorizontallyAligned(Position p) {
-		return false; //Placeholder
+		return position.isHorizantallyAligned(p);
 	}
 
 	public boolean isVerticallyAligned(Position p) {
@@ -33,23 +33,31 @@ public class Zombie {
 	}
 
 	public void receiveAttack(int damage) {
-
+		this.health-=damage;
 	}
 
 	public void update() {
-
+		cyclesSinceLastMovement++;
+		if( canMove()) {
+			if (cyclesSinceLastMovement >= MOVE_EVERY_CYCLES ) {
+				cyclesSinceLastMovement=0;
+				move();
+			}
+		} else {
+			game.attackZombie(position.left(), DAMAGE);
+		}
 	}
 
 	private boolean canMove() {
-		return false; //Placeholder
+		return game.isEmpty(position.left());
 	}
 
 	private void move() {
-
+		position = position.left();
 	}
 
 	public boolean isAlive() {
-		return false; //Placeholder
+		return health > 0;
 	}
 
 	private void attack() {

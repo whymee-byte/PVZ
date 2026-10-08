@@ -1,7 +1,6 @@
 package pvz.logic;
 
 import java.util.Arrays;
-
 import pvz.logic.gameobjects.Peashooter;
 import utils.Position;
 
@@ -41,8 +40,8 @@ public class PeashooterList {
 			i++;
 		}
 		peashooters[i].receiveDamage(damage);
-		
 	}
+	
 	public void removeDead() {
 		for (int i = 0; i < numberOfPeashooters; i++) if (!peashooters[i].isAlive()) {
 			removeFromIndex(i);

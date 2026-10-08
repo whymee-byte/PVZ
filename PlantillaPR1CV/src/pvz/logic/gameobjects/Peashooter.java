@@ -14,7 +14,7 @@ public class Peashooter {
 	public Peashooter(Position position,Game game) {
 		this.position = position;
 		this.game = game;
-		this.health=INITIAL_HEALTH;
+		this.health = INITIAL_HEALTH;
 	}
 	
 	public static String getDescription() {
@@ -42,7 +42,7 @@ public class Peashooter {
 	}
 	
 	public void receiveDamage(int damage) {
-		health-=damage;
+		health -= damage;
 	}
 	
 	public String shortName() {

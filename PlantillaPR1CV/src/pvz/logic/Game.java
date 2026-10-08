@@ -57,7 +57,7 @@ public class Game {
 	}
 	
 	public void quit() {
-		
+		//Placeholder
 	}
 	
 	public void update() {

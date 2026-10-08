@@ -14,10 +14,10 @@ public class Zombie {
 	
 
 	public Zombie(Position position, Game game) {
-		this.health=INITIAL_HEALTH;
-		this.cyclesSinceLastMovement=0;
-		this.position=position;
-		this.game=game;
+		this.health = INITIAL_HEALTH;
+		this.cyclesSinceLastMovement = 0;
+		this.position = position;
+		this.game = game;
 	}
 
 	public boolean isInPosition(Position position) {
@@ -33,14 +33,14 @@ public class Zombie {
 	}
 
 	public void receiveAttack(int damage) {
-		this.health-=damage;
+		this.health -= damage;
 	}
 
 	public void update() {
 		cyclesSinceLastMovement++;
 		if(canMove()) {
 			if (cyclesSinceLastMovement >= MOVE_EVERY_CYCLES ) {
-				cyclesSinceLastMovement=0;
+				cyclesSinceLastMovement = 0;
 				move();
 			}
 		} else attack();

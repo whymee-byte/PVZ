@@ -62,12 +62,11 @@ public class ZombiesManager {
 	public boolean addZombie(int row) {
 		Position zombiePosition = Game.newZombiePosition(row);
 
-		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie()
-				&& game.isEmpty(zombiePosition);
+		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
 		if(canAdd) {
 			// TODO fill your code
-			Zombie z=new Zombie(zombiePosition,game);
+			Zombie z = new Zombie(zombiePosition,game);
 			zombies.add(z);
 			remainingZombies--;
 		}

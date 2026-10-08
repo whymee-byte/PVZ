@@ -1,7 +1,6 @@
 package pvz.logic;
 
 import java.util.Arrays;
-
 import pvz.logic.gameobjects.Sunflower;
 import utils.Position;
 
@@ -38,12 +37,10 @@ public class SunflowerList {
 	
 	public void receiveDamage(Position p, int damage) {
 		int i=0;
-		while(i<numberOfSunflowers && !sunflowers[i].isInPosition(p)) {
-			i++;
-		}
+		while(i<numberOfSunflowers && !sunflowers[i].isInPosition(p)) i++;
 		sunflowers[i].receiveDamage(damage);
-		
 	}
+	
 	public void removeDead() {
 		for (int i = 0; i < numberOfSunflowers; i++) if (!sunflowers[i].isAlive()) {
 			removeFromIndex(i);

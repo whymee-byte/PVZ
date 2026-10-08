@@ -42,7 +42,7 @@ public class Sunflower {
 	}
 	
 	public void receiveDamage(int damage) {
-		health-=damage;
+		health -= damage;
 	}
 	
 	public boolean isAlive() {

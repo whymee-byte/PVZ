@@ -5,7 +5,6 @@ import java.util.Random;
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
 import utils.Position;
-import pvz.logic.ZombieList;
 
 /**
  * Manages the full lifecycle of zombies for a game session.
@@ -24,7 +23,7 @@ public class ZombiesManager {
 
 	private Random rand;
 
-	private static int remainingZombies;
+	private int remainingZombies;
 
 	private ZombieList zombies;
 
@@ -62,7 +61,7 @@ public class ZombiesManager {
 	public boolean addZombie(int row) {
 		Position zombiePosition = Game.newZombiePosition(row);
 
-		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
+		boolean canAdd = remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
 		if(canAdd) {
 			// TODO fill your code
@@ -74,7 +73,7 @@ public class ZombiesManager {
 	}
 
 	// TODO fill your code
-	public static int getRemainingZombies() {
+	public int getRemainingZombies() {
 		return remainingZombies;
 	}
 

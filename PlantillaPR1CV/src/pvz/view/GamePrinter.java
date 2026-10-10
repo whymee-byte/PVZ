@@ -98,9 +98,16 @@ public class GamePrinter implements GameView {
 	 */
 	@Override
 	public void showEndMessage() {
-		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
+		StringBuilder buffer = new StringBuilder(NEW_LINE+Messages.GAME_OVER);
 		// TODO fill your code
 		System.out.println(buffer);
+		if(game.playerQuits()) {
+			System.out.println(Messages.PLAYER_QUITS);
+		}else if(game.playerWins()) {
+			System.out.println(Messages.PLAYER_WINS);
+		}else {
+			System.out.println(Messages.ZOMBIES_WIN);
+		}
 	}
 
 	@Override

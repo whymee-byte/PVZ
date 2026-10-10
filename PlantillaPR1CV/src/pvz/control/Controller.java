@@ -34,7 +34,7 @@ public class Controller {
 		// TODO fill your code
 		view.showGame();
 		String Command[]=view.getPrompt();
-		while(!Command[0].equals("exit")&&!Command[0].equals("e")) {
+		while(!game.hasGameFinished()) {
 			
 			if(Command[0].equals("help")||Command[0].equals("h")) {
 				view.showMessage(Messages.HELP);
@@ -60,6 +60,9 @@ public class Controller {
 			}else if(Command[0].equals("rest")||Command[0].equals("r")) {
 				game.reset();
 				view.showGame();
+			
+			}else if(!Command[0].equals("exit")&&!Command[0].equals("e")){
+				game.quit();
 			}else {
 				view.showError(null);
 			}

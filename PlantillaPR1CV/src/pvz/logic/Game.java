@@ -4,7 +4,6 @@ import java.util.Random;
 import pvz.control.Level;
 import utils.Position;
 import pvz.logic.gameobjects.*;
-import pvz.logic.*;
 
 public class Game {
 	public final static int NUM_ROWS = 4;
@@ -45,19 +44,26 @@ public class Game {
 	}
 	
 	public boolean hasGameFinished() {
-		return zombieManager.allZombiesWereKilled() || zombieManager.allZombiesWereKilled();
+		if(playerQuits()) {
+			return true;
+		}else if(playerWins()) {
+			return true;
+		}else if (zombieManager.doZombiesReachedTheHouse()){
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean playerWins() {
-		return true; //Placeholder
+		return zombieManager.allZombiesWereKilled();
 	}
 	
 	public boolean playerQuits() {
-		return true; //Placeholder
+		return playerQuit;
 	}
 	
 	public void quit() {
-		//Placeholder
+		playerQuit=true;
 	}
 	
 	public void update() {
@@ -116,7 +122,7 @@ public class Game {
 	}
 	
 	public int getRemainingZombies() {
-		return ZombiesManager.getRemainingZombies();
+		return zombieManager.getRemainingZombies();
 	}
 
 	public void addGameObject(String plantType, Position position) {

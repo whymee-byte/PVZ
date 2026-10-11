@@ -46,32 +46,32 @@ public class Controller {
 			else if (Command[0].equals("add")||Command[0].equals("a")) {
 				if (Command.length < 4) {
 					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
-					return;
+					continue;
 				}
 				if(!game.checkGameObject(Command[1])) {
 					view.showError(Messages.INVALID_GAME_OBJECT);
-					return;
+					continue;
 				}
 				Position pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));
 				if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
 					view.showError(Messages.INVALID_POSITION);
-					return;
+					continue;
 				}
 				if (Command[1].equals("peashooter") || Command[1].equals("p")) {
 					if (game.getCoins() < Peashooter.COST) {
 						view.showError(Messages.NOT_ENOUGH_COINS);
-						return;
+						continue;
 					}
 				}
 				else if (Command[1].equals("sunflower") || Command[1].equals("s")) {
 					if (game.getCoins() < Sunflower.COST) {
 						view.showError(Messages.NOT_ENOUGH_COINS);
-						return;
+						continue;
 					}
 				}
 				else {
 					view.showError(Messages.INVALID_GAME_OBJECT);
-					return;
+					continue;
 				}
 				game.addGameObject(Command[1], pos);
 				game.update();

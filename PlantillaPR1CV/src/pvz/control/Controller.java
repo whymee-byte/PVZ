@@ -44,21 +44,38 @@ public class Controller {
 			}
 
 			else if (Command[0].equals("add")||Command[0].equals("a")) {
-				if (Command.length < 4) view.showError(Messages.COMMAND_PARAMETERS_MISSING);
-				else { 
-					if(!game.checkGameObject(Command[1])) {
-						view.showError(Messages.INVALID_GAME_OBJECT);
-					}else {
-						Position pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));
-						if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) view.showError(Messages.INVALID_POSITION);
-						else if(((Command[1].equals("peashooter") || Command[1].equals("p")) && game.getCoins() >= Peashooter.COST) || ((Command[1].equals("sunflower") || Command[1].equals("s")) && game.getCoins() >= Sunflower.COST)) {
-							game.addGameObject(Command[1], pos);
-							game.update();
-							view.showGame();
-						}
-						else view.showError(Messages.NOT_ENOUGH_COINS);
+				if (Command.length < 4) {
+					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
+					return;
+				}
+				if(!game.checkGameObject(Command[1])) {
+					view.showError(Messages.INVALID_GAME_OBJECT);
+					return;
+				}
+				Position pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));
+				if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
+					view.showError(Messages.INVALID_POSITION);
+					return;
+				}
+				if (Command[1].equals("peashooter") || Command[1].equals("p")) {
+					if (game.getCoins() < Peashooter.COST) {
+						view.showError(Messages.NOT_ENOUGH_COINS);
+						return;
 					}
 				}
+				else if (Command[1].equals("sunflower") || Command[1].equals("s")) {
+					if (game.getCoins() < Sunflower.COST) {
+						view.showError(Messages.NOT_ENOUGH_COINS);
+						return;
+					}
+				}
+				else {
+					view.showError(Messages.INVALID_GAME_OBJECT);
+					return;
+				}
+				game.addGameObject(Command[1], pos);
+				game.update();
+				view.showGame();
 			}
 			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
 				game.update();

@@ -52,7 +52,12 @@ public class Controller {
 					view.showError(Messages.INVALID_GAME_OBJECT);
 					continue;
 				}
-				Position pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));
+				Position pos;
+				try {pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));}
+				catch (NumberFormatException e) {
+					view.showError(Messages.INVALID_POSITION);
+					continue;
+				}
 				if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
 					view.showError(Messages.INVALID_POSITION);
 					continue;

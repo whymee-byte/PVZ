@@ -33,8 +33,8 @@ public class Controller {
 	public void run() {
 		// TODO fill your code
 		view.showGame();
-		String Command[]=view.getPrompt();
 		while(!game.hasGameFinished()) {
+			String Command[]=view.getPrompt();
 			
 			if(Command[0].equals("help")||Command[0].equals("h")) {
 				view.showMessage(Messages.HELP);
@@ -44,30 +44,33 @@ public class Controller {
 			}
 
 			else if (Command[0].equals("add")||Command[0].equals("a")) {
-				if (Command.length < 4) view.showMessage(Messages.COMMAND_PARAMETERS_MISSING);
-				else { Position pos = new Position(Integer.parseInt(Command[2]), Integer.parseInt(Command[3]));
-					if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) view.showMessage(Messages.INVALID_POSITION);
-					else if(((Command[1].equals("peashooter") || Command[1].equals("p")) && game.getCoins() >= Peashooter.COST) || ((Command[1].equals("sunflower") || Command[1].equals("s")) && game.getCoins() >= Sunflower.COST)) {
-						game.addGameObject(Command[1], pos);
-						view.showGame();
+				if (Command.length < 4) view.showError(Messages.COMMAND_PARAMETERS_MISSING);
+				else { 
+					if(!game.checkGameObject(Command[1])) {
+						view.showError(Messages.INVALID_GAME_OBJECT);
+					}else {
+						Position pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));
+						if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) view.showError(Messages.INVALID_POSITION);
+						else if(((Command[1].equals("peashooter") || Command[1].equals("p")) && game.getCoins() >= Peashooter.COST) || ((Command[1].equals("sunflower") || Command[1].equals("s")) && game.getCoins() >= Sunflower.COST)) {
+							game.addGameObject(Command[1], pos);
+							game.update();
+							view.showGame();
+						}
+						else view.showError(Messages.NOT_ENOUGH_COINS);
 					}
-					else view.showMessage(Messages.NOT_ENOUGH_COINS);
 				}
 			}
 			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
 				game.update();
 				view.showGame();
-			}else if(Command[0].equals("rest")||Command[0].equals("r")) {
+			}else if(Command[0].equals("reset")||Command[0].equals("r")) {
 				game.reset();
 				view.showGame();
-			
-			}else if(!Command[0].equals("exit")&&!Command[0].equals("e")){
+			}else if(Command[0].equals("exit")||Command[0].equals("e")){
 				game.quit();
 			}else {
-				view.showError(null);
+				view.showError(Messages.UNKNOWN_COMMAND);
 			}
-			System.out.println();
-			Command=view.getPrompt();
 		}
 		view.showEndMessage();
 	}

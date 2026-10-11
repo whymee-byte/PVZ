@@ -64,7 +64,10 @@ public class ZombieList {
 
 	private void removeFromIndex(int index) {
 		int i = index;
-		while (i < numberOfZombies - 1) zombies[i] = zombies[i+1];
+		while (i < numberOfZombies - 1) {
+			zombies[i] = zombies[i+1];
+			i++;
+		}
 		numberOfZombies--;
 	}
 }

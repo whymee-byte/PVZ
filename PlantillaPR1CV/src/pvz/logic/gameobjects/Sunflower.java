@@ -22,7 +22,7 @@ public class Sunflower {
 	}
 	
 	public static String getDescription() {
-		return String.format(Messages.PEASHOOTER_DESCRIPTION, COST, DAMAGE, INITIAL_HEALTH);
+		return String.format(Messages.SUNFLOWER_DESCRIPTION, COST, DAMAGE, INITIAL_HEALTH);
 	}
 	
 	public boolean isInPosition(Position position) {
@@ -30,7 +30,8 @@ public class Sunflower {
 	}
 	
 	public String getIcon() {
-		return "S[".concat(Integer.toString(health)).concat("]");
+		//return "S[".concat(Integer.toString(health)).concat("]");
+		return String.format(Messages.SUNFLOWER_ICON, health);
 	}
 	
 	public void update() {

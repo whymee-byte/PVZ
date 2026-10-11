@@ -1,6 +1,7 @@
 package pvz.logic.gameobjects;
 import utils.Position;
 import pvz.logic.Game;
+import pvz.view.Messages;
 
 
 public class Zombie {
@@ -63,6 +64,7 @@ public class Zombie {
 	}
 	
 	public String getIcon() {
-		return "Z[".concat(Integer.toString(health)).concat("]");
+//		return "Z[".concat(Integer.toString(health)).concat("]");
+		return String.format(Messages.ZOMBIE_ICON, health);
 	}
 }

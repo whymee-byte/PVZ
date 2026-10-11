@@ -50,7 +50,10 @@ public class PeashooterList {
 	}
 	private void removeFromIndex(int index) {
 		int i = index;
-		while (i < numberOfPeashooters - 1) peashooters[i] = peashooters[i+1];
+		while (i < numberOfPeashooters - 1) {
+			peashooters[i] = peashooters[i+1];
+			i++;
+		}
 		numberOfPeashooters--;
 	}
 }

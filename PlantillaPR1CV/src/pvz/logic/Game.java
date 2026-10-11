@@ -40,7 +40,13 @@ public class Game {
 	}
 	
 	public boolean checkGameObject(String objectName) {
-		return true; //Placeholder
+		if(objectName.equals("p")||objectName.equals("peashooter")||
+				objectName.equals("s")||objectName.equals("sunflower")) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public boolean hasGameFinished() {
@@ -67,6 +73,7 @@ public class Game {
 	}
 	
 	public void update() {
+		cycles++;
 		zombieManager.addZombie();
 		sunflowerList.update();
 		peashooterList.update();

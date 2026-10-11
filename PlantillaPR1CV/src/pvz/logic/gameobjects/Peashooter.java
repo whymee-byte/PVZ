@@ -22,7 +22,8 @@ public class Peashooter {
 	}
 	
 	public String getIcon() {
-		return "P[".concat(Integer.toString(health)).concat("]");
+//		return "P[".concat(Integer.toString(health)).concat("]");
+		return String.format(Messages.PEASHOOTER_ICON, health);
 	}
 	
 	public boolean isInPosition(Position position) {

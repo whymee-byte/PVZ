@@ -49,7 +49,10 @@ public class SunflowerList {
 	}
 	private void removeFromIndex(int index) {
 		int i = index;
-		while (i < numberOfSunflowers - 1) sunflowers[i] = sunflowers[i+1];
+		while (i < numberOfSunflowers - 1) {
+			sunflowers[i] = sunflowers[i+1];
+			i++;
+		}
 		numberOfSunflowers--;
 	}
 	

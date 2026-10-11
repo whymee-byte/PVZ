@@ -4,6 +4,7 @@ import java.util.Random;
 
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
+import pvz.logic.ZombieList;
 import utils.Position;
 
 /**

@@ -30,7 +30,6 @@ public class Sunflower {
 	}
 	
 	public String getIcon() {
-		//return "S[".concat(Integer.toString(health)).concat("]");
 		return String.format(Messages.SUNFLOWER_ICON, health);
 	}
 	

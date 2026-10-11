@@ -3,6 +3,8 @@ import java.util.Random;
 
 import pvz.control.Level;
 import utils.Position;
+import pvz.logic.PeashooterList;
+import pvz.logic.SunflowerList;
 import pvz.logic.gameobjects.*;
 
 public class Game {

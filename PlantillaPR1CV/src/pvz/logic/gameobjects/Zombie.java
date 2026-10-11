@@ -64,7 +64,6 @@ public class Zombie {
 	}
 	
 	public String getIcon() {
-//		return "Z[".concat(Integer.toString(health)).concat("]");
 		return String.format(Messages.ZOMBIE_ICON, health);
 	}
 }

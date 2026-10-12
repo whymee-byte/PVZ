@@ -16,7 +16,7 @@ public class Zombie {
 
 	public Zombie(Position position, Game game) {
 		this.health = INITIAL_HEALTH;
-		this.cyclesSinceLastMovement = 0;
+		this.cyclesSinceLastMovement = -1;
 		this.position = position;
 		this.game = game;
 	}

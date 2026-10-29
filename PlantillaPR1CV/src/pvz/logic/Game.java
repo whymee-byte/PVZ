@@ -10,7 +10,7 @@ import pvz.view.GamePrinter;
 import pvz.view.GameView;
 import pvz.view.Messages;
 
-public class Game {
+public class Game implements GameStatus, GameWorld, GameModel {
 	public final static int NUM_ROWS = 4;
 	public final static int NUM_COLS = 8;
 	public final static int INITIAL_COINS = 50;

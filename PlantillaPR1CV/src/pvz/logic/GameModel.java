@@ -1,0 +1,10 @@
+package pvz.logic;
+
+public interface GameModel {
+	void reset();
+	void update();
+	void quit();
+	public boolean playerWins();
+	public boolean hasGameFinished();
+	
+}

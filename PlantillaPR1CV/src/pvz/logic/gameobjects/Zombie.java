@@ -22,11 +22,11 @@ public class Zombie {
 	}
 
 	public boolean isInPosition(Position position) {
-		return position.column() == this.position.column() && position.row() == this.position.row();
+		return this.position.equals(position);
 	}
 
 	public boolean isHorizontallyAligned(Position p) {
-		return position.isHorizantallyAligned(p);
+		return position.isHorizontallyAligned(p);
 	}
 
 	public boolean isVerticallyAligned(Position p) {

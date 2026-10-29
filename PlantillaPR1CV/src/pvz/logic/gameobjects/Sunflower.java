@@ -10,7 +10,7 @@ public class Sunflower {
 	private static final int GENERATED_SUN_COINS = 10;
 	private static final int COOLDOWN = 3;
 	private int health;
-	private Position position;
+	private  final Position position;
 	private Game game;
 	private int cyclesSinceLastCoinGeneration;
 	
@@ -26,7 +26,7 @@ public class Sunflower {
 	}
 	
 	public boolean isInPosition(Position position) {
-		return position.column() == this.position.column() && position.row() == this.position.row();
+		return this.position.equals(position);
 	}
 	
 	public String getIcon() {

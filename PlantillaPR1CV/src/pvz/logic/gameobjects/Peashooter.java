@@ -8,7 +8,7 @@ public class Peashooter {
 	private static final int DAMAGE = 1;
 	private static final int INITIAL_HEALTH = 3;
 	private int health;
-	private Position position;
+	private  final Position position;
 	private Game game;
 	
 	public Peashooter(Position position,Game game) {
@@ -26,7 +26,7 @@ public class Peashooter {
 	}
 	
 	public boolean isInPosition(Position position) {
-		return position.column() == this.position.column() && position.row() == this.position.row();
+		return this.position.equals(position);
 	}
 	
 	public boolean isAlive() {

@@ -29,11 +29,18 @@ public class Position {
 		return new Position(row, col + 1);
 	}
 	
-	public boolean isHorizantallyAligned(Position p) {
+	public boolean isHorizontallyAligned(Position p) {
 		return row == p.row();
 	}
 	
 	public boolean isVerticallyAligned(Position p) {
 		return col == p.column();
+	}
+	public boolean equals(Position p) {
+		if(isVerticallyAligned(p) && isHorizontallyAligned(p)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 }

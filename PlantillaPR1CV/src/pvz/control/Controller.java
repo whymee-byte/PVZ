@@ -1,8 +1,6 @@
 package pvz.control;
 
 import pvz.logic.Game;
-import pvz.logic.gameobjects.Peashooter;
-import pvz.logic.gameobjects.Sunflower;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
 import pvz.view.Messages;
@@ -48,37 +46,16 @@ public class Controller {
 					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
 					continue;
 				}
-				if(!game.checkGameObject(Command[1])) {
-					view.showError(Messages.INVALID_GAME_OBJECT);
-					continue;
-				}
 				Position pos;
 				try {pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));}
 				catch (NumberFormatException e) {
 					view.showError(Messages.INVALID_POSITION);
 					continue;
 				}
-				if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
-					view.showError(Messages.INVALID_POSITION);
-					continue;
+				
+				if(!game.addGameObject(Command[1], pos)) {
+					view.showError(Messages.ERROR);
 				}
-				if (Command[1].equals("peashooter") || Command[1].equals("p")) {
-					if (game.getCoins() < Peashooter.COST) {
-						view.showError(Messages.NOT_ENOUGH_COINS);
-						continue;
-					}
-				}
-				else if (Command[1].equals("sunflower") || Command[1].equals("s")) {
-					if (game.getCoins() < Sunflower.COST) {
-						view.showError(Messages.NOT_ENOUGH_COINS);
-						continue;
-					}
-				}
-				else {
-					view.showError(Messages.INVALID_GAME_OBJECT);
-					continue;
-				}
-				game.addGameObject(Command[1], pos);
 				game.update();
 				view.showGame();
 			}

@@ -6,6 +6,9 @@ import utils.Position;
 import pvz.logic.PeashooterList;
 import pvz.logic.SunflowerList;
 import pvz.logic.gameobjects.*;
+import pvz.view.GamePrinter;
+import pvz.view.GameView;
+import pvz.view.Messages;
 
 public class Game {
 	public final static int NUM_ROWS = 4;
@@ -134,15 +137,28 @@ public class Game {
 		return zombieManager.getRemainingZombies();
 	}
 
-	public void addGameObject(String plantType, Position position) {
+	public boolean addGameObject(String plantType, Position pos) {
+		if(!checkGameObject(plantType)) {
+			return false;
+		}
+		if (!isInsideBoard(pos) || !isEmpty(pos)) {
+			return false;
+		}
 		if (plantType.equals("peashooter") || plantType.equals("p")) {
-			peashooterList.add(new Peashooter(position, this));
+			if (getCoins() < Peashooter.COST) {
+				return false;
+			}
+			peashooterList.add(new Peashooter(pos, this));
 			buyWithCoins(Peashooter.COST);
 		}
 		else if (plantType.equals("sunflower") || plantType.equals("s")) {
-			sunflowerList.add(new Sunflower(position, this));
+			if (getCoins() < Sunflower.COST) {
+				return false;
+			}
+			sunflowerList.add(new Sunflower(pos, this));
 			buyWithCoins(Sunflower.COST);
 		}
+		return true;
 	}
 	
 	public boolean isInsideBoard(Position p) {

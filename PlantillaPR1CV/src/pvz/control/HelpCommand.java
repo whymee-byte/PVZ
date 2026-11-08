@@ -1,5 +1,7 @@
 package pvz.control;
 
+import pvz.logic.GameModel;
+import pvz.view.GameView;
 import pvz.view.Messages;
 
 public class HelpCommand extends Command{
@@ -9,10 +11,15 @@ public class HelpCommand extends Command{
 		this.details = Messages.COMMAND_HELP_DETAILS;
 		this.help =  Messages.COMMAND_HELP_HELP;
 	}
+
 	@Override
 	public void execute(GameModel model, GameView view) {
+		// TODO Auto-generated method stub
+		view.showMessage(Command.getAvailableCommandsHelp());
 		
 	}
+
+
 	
 	
 

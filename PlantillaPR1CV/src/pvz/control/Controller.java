@@ -24,54 +24,63 @@ public class Controller {
 		this.game = game;
 		this.view = new GamePrinter(game);
 	}
-
+	public void run(){
+		view.showGame();
+		while(!game.hasGameFinished()) {
+			String[]c=view.getPrompt();
+			Command command = Command.parse(c);
+			if(command!=null) {
+				command.execute(game, view);
+			}
+		}
+	}
 	/**
 	 * Runs the game logic.
 	 */
-	public void run() {
-		// TODO fill your code
-		view.showGame();
-		while(!game.hasGameFinished()) {
-			String Command[]=view.getPrompt();
-			
-			if(Command[0].equals("help")||Command[0].equals("h")) {
-				view.showMessage(Messages.HELP);
-			}
-			else if(Command[0].equals("list")||Command[0].equals("l")) {
-				view.showMessage(Messages.LIST);
-			}
-
-			else if (Command[0].equals("add")||Command[0].equals("a")) {
-				if (Command.length < 4) {
-					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
-					continue;
-				}
-				Position pos;
-				try {pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));}
-				catch (NumberFormatException e) {
-					view.showError(Messages.INVALID_POSITION);
-					continue;
-				}
-				
-				if(!game.addGameObject(Command[1], pos)) {
-					view.showError(Messages.ERROR);
-				}
-				game.update();
-				view.showGame();
-			}
-			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
-				game.update();
-				view.showGame();
-			}else if(Command[0].equals("reset")||Command[0].equals("r")) {
-				game.reset();
-				view.showGame();
-			}else if(Command[0].equals("exit")||Command[0].equals("e")){
-				game.quit();
-			}else {
-				view.showError(Messages.UNKNOWN_COMMAND);
-			}
-		}
-		view.showEndMessage();
-	}
+//	public void run() {
+//		// TODO fill your code
+//		view.showGame();
+//		while(!game.hasGameFinished()) {
+//			String Command[]=view.getPrompt();
+//			
+//			if(Command[0].equals("help")||Command[0].equals("h")) {
+//				view.showMessage(Messages.HELP);
+//			}
+//			else if(Command[0].equals("list")||Command[0].equals("l")) {
+//				view.showMessage(Messages.LIST);
+//			}
+//
+//			else if (Command[0].equals("add")||Command[0].equals("a")) {
+//				if (Command.length < 4) {
+//					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
+//					continue;
+//				}
+//				Position pos;
+//				try {pos = new Position(Integer.parseInt(Command[3]), Integer.parseInt(Command[2]));}
+//				catch (NumberFormatException e) {
+//					view.showError(Messages.INVALID_POSITION);
+//					continue;
+//				}
+//				
+//				if(!game.addGameObject(Command[1], pos)) {
+//					view.showError(Messages.ERROR);
+//				}
+//				game.update();
+//				view.showGame();
+//			}
+//			else if(Command[0].equals("none")||Command[0].equals("n")||Command[0].equals("")) {
+//				game.update();
+//				view.showGame();
+//			}else if(Command[0].equals("reset")||Command[0].equals("r")) {
+//				game.reset();
+//				view.showGame();
+//			}else if(Command[0].equals("exit")||Command[0].equals("e")){
+//				game.quit();
+//			}else {
+//				view.showError(Messages.UNKNOWN_COMMAND);
+//			}
+//		}
+//		view.showEndMessage();
+//	}
 
 }

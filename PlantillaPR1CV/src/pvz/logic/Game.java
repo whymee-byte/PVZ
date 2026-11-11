@@ -3,8 +3,8 @@ import java.util.Random;
 
 import pvz.control.Level;
 import utils.Position;
-import pvz.logic.PeashooterList;
-import pvz.logic.SunflowerList;
+//import pvz.logic.PeashooterList;
+//import pvz.logic.SunflowerList;
 import pvz.logic.gameobjects.*;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
@@ -21,9 +21,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private Random rand;
 	private boolean playerQuit;
 	private Level level;
-	private ZombiesManager zombieManager;
-	private PeashooterList peashooterList;
-	private SunflowerList sunflowerList;
+	private ZombiesManager zombieManager; //Esto habrá que moverlo supongo pero no tengo claro a dónde
+	private GameObjectContainer container;
+	//private PeashooterList peashooterList;
+	//private SunflowerList sunflowerList;
 	
 	public Game(Long seed, Level level){
 		this.longSeed = seed;
@@ -31,15 +32,17 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		this.coins = INITIAL_COINS;
 		this.rand = new Random(seed);
 		this.level = level;
-		this.peashooterList = new PeashooterList();
-		this.sunflowerList = new SunflowerList();
+		this.container = new GameObjectContainer();
+		//this.peashooterList = new PeashooterList();
+		//this.sunflowerList = new SunflowerList();
 		this.zombieManager = new ZombiesManager(this,level,rand);
 		this.playerQuit = false;
 	}
 	
 	public String positionToString(Position position) {
-		if (!sunflowerList.isEmpty(position)) return sunflowerList.iconInPosition(position);
-		if (!peashooterList.isEmpty(position)) return peashooterList.iconInPosition(position);
+		if (!container.isEmpty(position)) return container.iconInPosition(position);
+		//if (!sunflowerList.isEmpty(position)) return sunflowerList.iconInPosition(position);
+		//if (!peashooterList.isEmpty(position)) return peashooterList.iconInPosition(position);
 		if (!zombieManager.isEmpty(position)) return zombieManager.iconInPosition(position);
 		return "";
 	}
@@ -80,20 +83,23 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public void update() {
 		cycles++;
 		zombieManager.addZombie();
-		sunflowerList.update();
-		peashooterList.update();
+		container.update();
+		//sunflowerList.update();
+		//peashooterList.update();
 		zombieManager.removeDead();
 		zombieManager.update();
-		sunflowerList.removeDead();
-		peashooterList.removeDead();
+		container.removeDead();
+		//sunflowerList.removeDead();
+		//peashooterList.removeDead();
 	}
 	
 	public void reset() {
 		cycles = 0;
 		coins = INITIAL_COINS;
 		rand = new Random(this.longSeed);
-		peashooterList = new PeashooterList();
-		sunflowerList = new SunflowerList();
+		container = new GameObjectContainer();
+		//peashooterList = new PeashooterList();
+		//sunflowerList = new SunflowerList();
 		zombieManager = new ZombiesManager(this,level,rand);
 	}
 	
@@ -105,13 +111,13 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		coins -= cost;
 	}
 	
-	public void attackZombie(Position p,int damage) {
+	/*public void attackZombie(Position p,int damage) {
 		if (!sunflowerList.isEmpty(p)) {
 			sunflowerList.receiveDamage(p,damage);
 		}else if(!peashooterList.isEmpty(p)) {
 			peashooterList.receiveDamage(p,damage);
 		}
-	}
+	}*/
 	
 	public void attackPlant(Position p,int damage) {
 		zombieManager.damageZombie(p, damage);
@@ -122,7 +128,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 
 	public boolean isEmpty(Position p) {
-		return zombieManager.isEmpty(p) && peashooterList.isEmpty(p) && sunflowerList.isEmpty(p);
+		return zombieManager.isEmpty(p) && container.isEmpty(p);
 	}
 	
 	public int getCycles() {
@@ -137,7 +143,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return zombieManager.getRemainingZombies();
 	}
 
-	public boolean addGameObject(String plantType, Position pos) {
+	/*public boolean addGameObject(String plantType, Position pos) {
 		if(!checkGameObject(plantType)) {
 			return false;
 		}
@@ -159,6 +165,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 			buyWithCoins(Sunflower.COST);
 		}
 		return true;
+	}*/
+	public void addGameObject(GameObject object) {
+		container.add(object);
 	}
 	
 	public boolean isInsideBoard(Position p) {

@@ -1,1 +1,6 @@
-2026/10/08-14:01:37.715 5608 Reusing MANIFEST C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
+2026/11/09-18:42:10.831 7048 Log #6: 1 ops saved to Table #7 OK
+2026/11/09-18:42:10.835 7048 Archiving C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/000006.log: OK
+2026/11/09-18:42:10.836 7048 Table #4: 1 entries OK
+2026/11/09-18:42:10.836 7048 Table #7: 1 entries OK
+2026/11/09-18:42:10.843 7048 Archiving C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001: OK
+2026/11/09-18:42:10.851 7048 **** Repaired leveldb C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database; recovered 2 files; 292 bytes. Some data may have been lost. ****

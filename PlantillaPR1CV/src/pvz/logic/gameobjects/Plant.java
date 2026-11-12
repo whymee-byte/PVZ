@@ -18,4 +18,6 @@ public abstract class Plant extends GameObject {
             || shortName().equalsIgnoreCase(nombre);
     }
     public abstract Plant create(GameWorld game, Position position);
+    @Override
+    public abstract boolean receiveZombieAttack(int damage);
 }

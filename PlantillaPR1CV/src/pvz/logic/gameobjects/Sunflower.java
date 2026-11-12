@@ -82,4 +82,8 @@ public class Sunflower extends Plant {
 		// TODO Auto-generated method stub
 		
 	}
+	public boolean receiveZombieAttack(int damage) {
+		receiveDamage(damage);
+		return true;
+	}
 }

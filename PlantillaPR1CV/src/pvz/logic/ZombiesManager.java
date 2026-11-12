@@ -26,14 +26,13 @@ public class ZombiesManager {
 
 	private int remainingZombies;
 
-	private ZombieList zombies;
 
 	public ZombiesManager(Game game, Level level, Random rand) {
 		this.game = game;
 		this.level = level;
 		this.rand = rand;
 		this.remainingZombies = level.getNumberOfZombies();
-		this.zombies = new ZombieList();
+		
 	}
 
 	/**
@@ -67,7 +66,7 @@ public class ZombiesManager {
 		if(canAdd) {
 			// TODO fill your code
 			Zombie z = new Zombie(zombiePosition,game);
-			zombies.add(z);
+			game.addGameObject();
 			remainingZombies--;
 		}
 		return canAdd;

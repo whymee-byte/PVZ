@@ -1,59 +1,59 @@
-package pvz.logic;
-
-import java.util.Arrays;
-import pvz.logic.gameobjects.Sunflower;
-import utils.Position;
-
-public class SunflowerList {
-	private int numberOfSunflowers;
-	private Sunflower[]sunflowers;
-	
-	public SunflowerList () {
-		this.numberOfSunflowers = 0;
-		this.sunflowers = new Sunflower[0];
-	}
-	
-	public void add(Sunflower s) {
-		if (numberOfSunflowers >= sunflowers.length) sunflowers = Arrays.copyOf(sunflowers, numberOfSunflowers + 1);
-		sunflowers[numberOfSunflowers] = s;
-		numberOfSunflowers++;
-	}
-	
-	public boolean isEmpty(Position position) {
-		int i = 0;
-		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
-		return i == numberOfSunflowers;
-	}
-	
-	public String iconInPosition(Position position) {
-		int i = 0;
-		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
-		return sunflowers[i].getIcon();
-	}
-	
-	public void update() {
-		for (int i = 0; i < numberOfSunflowers; i++) sunflowers[i].update();
-	}
-	
-	public void receiveDamage(Position p, int damage) {
-		int i=0;
-		while(i<numberOfSunflowers && !sunflowers[i].isInPosition(p)) i++;
-		sunflowers[i].receiveDamage(damage);
-	}
-	
-	public void removeDead() {
-		for (int i = 0; i < numberOfSunflowers; i++) if (!sunflowers[i].isAlive()) {
-			removeFromIndex(i);
-			i--;
-		}
-	}
-	private void removeFromIndex(int index) {
-		int i = index;
-		while (i < numberOfSunflowers - 1) {
-			sunflowers[i] = sunflowers[i+1];
-			i++;
-		}
-		numberOfSunflowers--;
-	}
-	
-}
+//package pvz.logic;
+//
+//import java.util.Arrays;
+//import pvz.logic.gameobjects.Sunflower;
+//import utils.Position;
+//
+//public class SunflowerList {
+//	private int numberOfSunflowers;
+//	private Sunflower[]sunflowers;
+//	
+//	public SunflowerList () {
+//		this.numberOfSunflowers = 0;
+//		this.sunflowers = new Sunflower[0];
+//	}
+//	
+//	public void add(Sunflower s) {
+//		if (numberOfSunflowers >= sunflowers.length) sunflowers = Arrays.copyOf(sunflowers, numberOfSunflowers + 1);
+//		sunflowers[numberOfSunflowers] = s;
+//		numberOfSunflowers++;
+//	}
+//	
+//	public boolean isEmpty(Position position) {
+//		int i = 0;
+//		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
+//		return i == numberOfSunflowers;
+//	}
+//	
+//	public String iconInPosition(Position position) {
+//		int i = 0;
+//		while (i < numberOfSunflowers && !sunflowers[i].isInPosition(position)) i++;
+//		return sunflowers[i].getIcon();
+//	}
+//	
+//	public void update() {
+//		for (int i = 0; i < numberOfSunflowers; i++) sunflowers[i].update();
+//	}
+//	
+//	public void receiveDamage(Position p, int damage) {
+//		int i=0;
+//		while(i<numberOfSunflowers && !sunflowers[i].isInPosition(p)) i++;
+//		sunflowers[i].receiveDamage(damage);
+//	}
+//	
+//	public void removeDead() {
+//		for (int i = 0; i < numberOfSunflowers; i++) if (!sunflowers[i].isAlive()) {
+//			removeFromIndex(i);
+//			i--;
+//		}
+//	}
+//	private void removeFromIndex(int index) {
+//		int i = index;
+//		while (i < numberOfSunflowers - 1) {
+//			sunflowers[i] = sunflowers[i+1];
+//			i++;
+//		}
+//		numberOfSunflowers--;
+//	}
+//	
+//}

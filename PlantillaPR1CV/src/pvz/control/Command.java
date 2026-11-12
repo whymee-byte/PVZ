@@ -10,8 +10,8 @@ public abstract class Command {
 			new ListPlantsCommand(),
 			new ResetCommand(),
 			new HelpCommand(),
-			new UpdateCommand(),
-			new ExitCommand()
+			new ExitCommand(),
+			new UpdateCommand()
 	);
 	protected String name;
 	protected String shortcut;

@@ -14,5 +14,6 @@ public interface GameWorld {
 	public void generateCoins(int amount);
 	public boolean checkGameObject(String objectName);
 	public String positionToString(Position position);
+	public GameItem getGameItemInPosition(Position position);
 	
 }

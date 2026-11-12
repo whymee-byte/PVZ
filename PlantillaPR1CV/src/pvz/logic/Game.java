@@ -111,13 +111,6 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		coins -= cost;
 	}
 	
-	/*public void attackZombie(Position p,int damage) {
-		if (!sunflowerList.isEmpty(p)) {
-			sunflowerList.receiveDamage(p,damage);
-		}else if(!peashooterList.isEmpty(p)) {
-			peashooterList.receiveDamage(p,damage);
-		}
-	}*/
 	
 	public void attackPlant(Position p,int damage) {
 		zombieManager.damageZombie(p, damage);
@@ -194,7 +187,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	public GameItem getGameItemInPosition(Position position) {
+		return container.getGameItemInPosition(position);
+		
+	}
 	@Override
 	public void attackZombie(Position p, int damage) {
 		// TODO Auto-generated method stub

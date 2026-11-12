@@ -1,24 +1,29 @@
 package pvz.logic.gameobjects;
 import utils.Position;
 import pvz.logic.Game;
+import pvz.logic.GameItem;
+import pvz.logic.GameObject;
+import pvz.logic.GameWorld;
 import pvz.view.Messages;
 
 
-public class Zombie {
-	private final int INITIAL_HEALTH = 5;
-	private final int DAMAGE = 1;
-	private final int MOVE_EVERY_CYCLES = 2;
-	private int health;
+public abstract class Zombie extends GameObject{
+//	private final int INITIAL_HEALTH = 5;
+//	private final int DAMAGE = 1;
+//	private final int MOVE_EVERY_CYCLES = 2;
+	
 	private int cyclesSinceLastMovement;
-	private Position position;
-	private Game game;
+	protected int damage;
+	protected int initialHealth;
+	protected int moveEveryCycles;
+
 	
 
-	public Zombie(Position position, Game game) {
-		this.health = INITIAL_HEALTH;
-		this.cyclesSinceLastMovement = -1;
-		this.position = position;
-		this.game = game;
+	public Zombie(GameWorld gw, Position position) {
+		super(gw,position);
+//		health = INITIAL_HEALTH;
+//		this.cyclesSinceLastMovement = -1;
+
 	}
 
 	public boolean isInPosition(Position position) {
@@ -34,21 +39,27 @@ public class Zombie {
 	}
 
 	public void receiveAttack(int damage) {
-		this.health -= damage;
+		health -= damage;
 	}
 
-	public void update() {
+	public void update()
+	{
 		cyclesSinceLastMovement++;
 		if(canMove()) {
-			if (cyclesSinceLastMovement >= MOVE_EVERY_CYCLES ) {
+			if (cyclesSinceLastMovement >= moveEveryCycles ) {
 				cyclesSinceLastMovement = 0;
 				move();
 			}
-		} else attack();
+		} else {
+			GameItem item= gw.getGameItemInPosition(position);
+			if(item!=null) {
+				item.receiveZombieAttack(damage);
+			}
+		}
 	}
 
 	private boolean canMove() {
-		return game.isEmpty(position.left());
+		return gw.isEmpty(position.left());
 	}
 
 	private void move() {
@@ -60,7 +71,7 @@ public class Zombie {
 	}
 
 	private void attack() {
-		game.attackZombie(position.left(), DAMAGE);
+		gw.attackZombie(position.left(), damage);
 	}
 	
 	public String getIcon() {

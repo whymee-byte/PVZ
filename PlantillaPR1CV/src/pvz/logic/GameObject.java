@@ -5,6 +5,7 @@ import utils.Position;
 public abstract class GameObject implements GameItem {
     protected GameWorld gw;
     protected Position position;
+    protected int health;
     protected boolean alive;
 
     public GameObject(GameWorld gw, Position position) {

@@ -37,8 +37,13 @@ public class AddPlantCommand extends Command{
 	}
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO Auto-generated method stub
-		//falta
+		if(!model.addGameObject(plantName, position, false)) {
+			view.showError("Could not add plant");
+			return;
+		}else {
+			model.update();
+			view.showGame();
+		}
 		
 	}
 

@@ -124,7 +124,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 	
 	public static Position newZombiePosition(int row) {
-		return new Position(row, NUM_COLS - 1);
+		return new Position(row, NUM_COLS);
 	}
 
 	public boolean isEmpty(Position p) {
@@ -142,7 +142,21 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public int getRemainingZombies() {
 		return zombieManager.getRemainingZombies();
 	}
+	@Override
+	public boolean addGameObject(String plantName, Position position,boolean cost) {
+	    if (!isInsideBoard(position) || !isEmpty(position)) {
+	        return false;
+	    }
 
+	    Plant plant = PlantFactory.spawnPlant(plantName, this, position);
+	    if (plant == null || getCoins() < plant.getCost()) {
+	        return false;
+	    }
+
+	    buyWithCoins(plant.getCost());
+	    addGameObject(plant);
+	    return true;
+	}
 	/*public boolean addGameObject(String plantType, Position pos) {
 		if(!checkGameObject(plantType)) {
 			return false;
@@ -173,5 +187,17 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean isInsideBoard(Position p) {
 		if (p.column() < 0 || p.column() >= NUM_COLS || p.row() < 0 || p.row() >= NUM_ROWS) return false;
 		return true;
+	}
+
+	@Override
+	public boolean addGameObject(String plantType, Position pos) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void attackZombie(Position p, int damage) {
+		// TODO Auto-generated method stub
+		
 	}
 }

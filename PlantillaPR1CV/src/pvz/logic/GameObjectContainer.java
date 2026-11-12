@@ -63,7 +63,7 @@ public class GameObjectContainer {
 	
 	public String iconInPosition(Position position) {
 		for (GameObject obj : gameObjects) {
-			if (obj.isInPosition(position)) return obj.getDescription();
+			if (obj.isInPosition(position)) return obj.getIcon();
 		}
 		return "";
 	}

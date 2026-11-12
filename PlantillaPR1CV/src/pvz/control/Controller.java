@@ -33,6 +33,7 @@ public class Controller {
 				command.execute(game, view);
 			}
 		}
+		view.showEndMessage();
 	}
 	/**
 	 * Runs the game logic.

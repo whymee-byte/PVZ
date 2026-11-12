@@ -1,9 +1,11 @@
 package pvz.control;
 
+import java.util.StringJoiner;
+
 import pvz.logic.GameModel;
 import pvz.view.GameView;
-import pvz.logic.gameobjects.Peashooter;
-import pvz.logic.gameobjects.Sunflower;
+import pvz.logic.gameobjects.Plant;
+import pvz.logic.gameobjects.PlantFactory;
 import pvz.view.Messages;
 
 public class ListPlantsCommand extends Command {
@@ -15,11 +17,11 @@ public class ListPlantsCommand extends Command {
 	}
 	@Override
 	public void execute(GameModel model, GameView view) {
-	    StringBuilder sb = new StringBuilder();
+	    StringJoiner sb = new StringJoiner(Messages.LINE_SEPARATOR);
 
-	    sb.append(Peashooter.getDescription());
-	    sb.append(Messages.LINE_SEPARATOR);
-	    sb.append(Sunflower.getDescription());
+	    for(Plant p: PlantFactory.getAvailablePlants()) {
+	    	sb.add(p.getDescription());
+	    }
 
 	    view.showMessage(sb.toString());
 	}

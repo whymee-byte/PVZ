@@ -3,12 +3,12 @@ package pvz.logic;
 import utils.Position;
 
 public abstract class GameObject implements GameItem {
-    protected Game game;
+    protected GameWorld gw;
     protected Position position;
     protected boolean alive;
 
-    public GameObject(Game game, Position position) {
-        this.game = game;
+    public GameObject(GameWorld gw, Position position) {
+        this.gw = gw;
         this.position = position;
         this.alive = true;
     }
@@ -30,7 +30,7 @@ public abstract class GameObject implements GameItem {
     }
 
     public abstract String getDescription();
-    
+    public abstract String getIcon();
     public abstract void onEnter();
     
     public abstract void update();

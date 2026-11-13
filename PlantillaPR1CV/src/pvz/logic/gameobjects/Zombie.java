@@ -19,6 +19,8 @@ public abstract class Zombie extends GameObject{
 
 	
 
+	
+
 	public Zombie(GameWorld gw, Position position) {
 		super(gw,position);
 //		health = INITIAL_HEALTH;
@@ -76,5 +78,9 @@ public abstract class Zombie extends GameObject{
 	
 	public String getIcon() {
 		return String.format(Messages.ZOMBIE_ICON, health);
+	}
+	@Override
+	public String getDescription() {
+		return Messages.ZOMBIE_DESCRIPTION;
 	}
 }

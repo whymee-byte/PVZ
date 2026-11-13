@@ -7,6 +7,7 @@ import pvz.view.*;
 public abstract class Command {
 	private static final List<Command> AVAILABLE_COMMANDS=Arrays.asList(
 			new AddPlantCommand(),
+			new AddPlantCheatCommand(),
 			new ListPlantsCommand(),
 			new ResetCommand(),
 			new HelpCommand(),

@@ -94,13 +94,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 	
 	public void reset() {
-		cycles = 0;
-		coins = INITIAL_COINS;
-		rand = new Random(this.longSeed);
-		container = new GameObjectContainer();
-		//peashooterList = new PeashooterList();
-		//sunflowerList = new SunflowerList();
-		zombieManager = new ZombiesManager(this,level,rand);
+		reset(this.level,this.longSeed);
 	}
 	
 	public void generateCoins(int amount) {
@@ -136,19 +130,25 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return zombieManager.getRemainingZombies();
 	}
 	@Override
-	public boolean addGameObject(String plantName, Position position,boolean cost) {
+	public boolean addGameObject(String plantName, Position position,boolean cheat) {
 	    if (!isInsideBoard(position) || !isEmpty(position)) {
 	        return false;
 	    }
 
 	    Plant plant = PlantFactory.spawnPlant(plantName, this, position);
-	    if (plant == null || getCoins() < plant.getCost()) {
+	    if (plant == null ) {
 	        return false;
 	    }
-
-	    buyWithCoins(plant.getCost());
-	    addGameObject(plant);
-	    return true;
+	    if(cheat) {
+		    addGameObject(plant);
+		    return true;
+	    }else if( getCoins() < plant.getCost()) {
+		    return false;
+	    }else {
+	    	buyWithCoins(plant.getCost());
+	    	addGameObject(plant);
+		    return true;
+	    }
 	}
 	/*public boolean addGameObject(String plantType, Position pos) {
 		if(!checkGameObject(plantType)) {
@@ -194,6 +194,19 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	@Override
 	public void attackZombie(Position p, int damage) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reset(Level level, long seed) {
+		this.level=level;
+		this.longSeed=seed;
+		this.cycles=0;
+		this.coins=INITIAL_COINS;
+		this.playerQuit=false;
+		this.rand=new Random(seed);
+		this.container=new GameObjectContainer();
+		this.zombieManager=new ZombiesManager(this,level,rand);
 		
 	}
 }

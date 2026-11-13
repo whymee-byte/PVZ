@@ -17,13 +17,7 @@ public class ListPlantsCommand extends Command {
 	}
 	@Override
 	public void execute(GameModel model, GameView view) {
-	    StringJoiner sb = new StringJoiner(Messages.LINE_SEPARATOR);
-
-	    for(Plant p: PlantFactory.getAvailablePlants()) {
-	    	sb.add(p.getDescription());
-	    }
-
-	    view.showMessage(sb.toString());
+	    view.showMessage(PlantFactory.getAvailablePlants());
 	}
 
 }

@@ -7,13 +7,8 @@ public class Peashooter extends Plant{
 	public static final int COST = 50;
 	private static final int DAMAGE = 1;
 	private static final int INITIAL_HEALTH = 3;
-	private static final String SYMBOL = Messages.PEASHOOTER_SYMBOL;
-	private static final String NAME = Messages.PEASHOOTER_NAME;
-	private static final String DESCRIPTION =
-			String.format(Messages.PEASHOOTER_DESCRIPTION, COST, DAMAGE, INITIAL_HEALTH);
-	private static final String ICON = Messages.PEASHOOTER_ICON;
+	private static final String NAME_AND_SHORT = Messages.PEASHOOTER_NAME_AND_SHORTCUT;
 
-	private int health;
 //constructoras dummy para identificar a las plantas
 	Peashooter(){
 		this(null,null);
@@ -21,15 +16,6 @@ public class Peashooter extends Plant{
 	public Peashooter(GameWorld game,Position position) {
 		super(game,position);
 		this.health = INITIAL_HEALTH;
-	}
-	
-	@Override
-	public String getDescription() {
-		return DESCRIPTION;
-	}
-	
-	public String getIcon() {
-		return String.format(ICON, health);
 	}
 	
 	public boolean isInPosition(Position position) {
@@ -48,16 +34,18 @@ public class Peashooter extends Plant{
 		gw.attackPlant(position, DAMAGE);
 	}
 	
-	public void receiveDamage(int damage) {
-		health -= damage;
-	}
 	@Override
 	public String shortName() {
-		return SYMBOL;
+		return Messages.PEASHOOTER_SYMBOL;
 	}
 	@Override
 	public String longName() {
-		return NAME;
+		return Messages.PEASHOOTER_NAME;
+	}
+
+	@Override
+	public String nameAndShort() {
+		return NAME_AND_SHORT;
 	}
 	@Override
 	public int getCost() {
@@ -80,8 +68,13 @@ public class Peashooter extends Plant{
 		// TODO Auto-generated method stub
 		
 	}
-	public boolean receiveZombieAttack(int damage) {
-		receiveDamage(damage);
-		return true;
+	@Override
+	public int getEndurance() {
+		return INITIAL_HEALTH;
+	}
+	@Override
+	public int getDamage() {
+		// TODO Auto-generated method stub
+		return DAMAGE;
 	}
 }

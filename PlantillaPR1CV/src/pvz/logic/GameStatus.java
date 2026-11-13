@@ -7,5 +7,6 @@ public interface GameStatus {
 	public int getCoins();
 	public int getCycles();
 	public boolean isEmpty(Position p);
+	public String positionToString(Position position);
 	
 }

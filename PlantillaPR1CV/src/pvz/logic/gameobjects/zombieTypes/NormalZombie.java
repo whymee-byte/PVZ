@@ -9,7 +9,8 @@ public class NormalZombie extends Zombie{
 	private final int INITIAL_HEALTH=5;
 	private final int MOVE_EVERY_CYCLE=2;
 	private final int DAMAGE=1;
-	
+	private static final String SYMBOL = Messages.SUNFLOWER_SYMBOL;
+	private static final String NAME = Messages.SUNFLOWER_NAME;
 	
 	public NormalZombie(GameWorld gw, Position position) {
 		super(gw, position);
@@ -18,10 +19,6 @@ public class NormalZombie extends Zombie{
 		damage=DAMAGE;
 	}
 
-	@Override
-	public String getDescription() {
-		return Messages.ZOMBIE_DESCRIPTION;
-	}
 
 	@Override
 	public void onEnter() {

@@ -29,12 +29,15 @@ public abstract class GameObject implements GameItem {
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
+    public abstract String getIcon();
 
     public abstract String getDescription();
-    public abstract String getIcon();
+
     public abstract void onEnter();
     
-    public abstract void update();
+    public void update() {
+    	
+    }
     
     public abstract void onExit();
 

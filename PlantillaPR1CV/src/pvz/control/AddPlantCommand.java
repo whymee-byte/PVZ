@@ -25,7 +25,7 @@ public class AddPlantCommand extends Command{
 		
 	}
 	protected Command create(String [] argumentos) {
-		if(argumentos.length!=4 )return null;
+		if(argumentos.length!=4 )return new IllegalParametersCommand(Messages.COMMAND_PARAMETERS_MISSING);
 		try {
 			int col=Integer.parseInt(argumentos[2]);
 			int row=Integer.parseInt(argumentos[3]);

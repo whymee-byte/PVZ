@@ -74,4 +74,10 @@ public class GameObjectContainer {
 		}
 		return false;
 	}
+	
+	public void attackZombie(Position p, int damage) {
+		for (GameObject obj : gameObjects) {
+			if (obj.isInPosition(p)) obj.receiveZombieAttack(damage);
+		}
+	}
 }

@@ -59,10 +59,11 @@ public abstract class Zombie extends GameObject{
 				move();
 			}
 		} else {
-			GameItem item= gw.getGameItemInPosition(position);
+			/*GameItem item= gw.getGameItemInPosition(position);
 			if(item!=null) {
 				item.receiveZombieAttack(damage);
-			}
+			}*/
+			attack();
 		}
 	}
 

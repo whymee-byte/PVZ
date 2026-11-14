@@ -195,8 +195,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 	@Override
 	public void attackZombie(Position p, int damage) {
-		// TODO Auto-generated method stub
-		
+		container.attackZombie(p, damage);
 	}
 
 	@Override

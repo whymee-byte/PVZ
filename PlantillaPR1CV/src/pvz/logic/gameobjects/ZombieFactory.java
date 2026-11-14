@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.Random;
 
 import pvz.logic.GameWorld;
 import pvz.logic.gameobjects.zombieTypes.*;
@@ -18,13 +19,13 @@ public class ZombieFactory {
 		new ExplosiveZombie()
 	);
 
-	public static Zombie spawnZombie(String zombieName, GameWorld game, Position position) {
-		for(Zombie z : AVAILABLE_ZOMBIES) {
+	public static Zombie spawnZombie(Random rand, GameWorld game, Position position) {
+		/*for(Zombie z : AVAILABLE_ZOMBIES) {
 			if(z.matchZombie(zombieName)) {
 				return z.create(game,position);
 			}
-		}
-		return null;
+		}*/
+		return AVAILABLE_ZOMBIES.get(rand.nextInt(AVAILABLE_ZOMBIES.size())).create(game,position);
 	}
 
 	public static String getAvailableZombies(){

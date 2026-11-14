@@ -43,11 +43,12 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		if (!container.isEmpty(position)) return container.iconInPosition(position);
 		//if (!sunflowerList.isEmpty(position)) return sunflowerList.iconInPosition(position);
 		//if (!peashooterList.isEmpty(position)) return peashooterList.iconInPosition(position);
-		if (!zombieManager.isEmpty(position)) return zombieManager.iconInPosition(position);
+		//if (!zombieManager.isEmpty(position)) return zombieManager.iconInPosition(position);
 		return "";
 	}
 	
 	public boolean checkGameObject(String objectName) {
+		//Necesita actualizar. Comprobar en container, no con nombres pre-escritos
 		if(objectName.equals("p")||objectName.equals("peashooter")||
 				objectName.equals("s")||objectName.equals("sunflower")) {
 			return true;
@@ -86,8 +87,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		container.update();
 		//sunflowerList.update();
 		//peashooterList.update();
-		zombieManager.removeDead();
-		zombieManager.update();
+		//zombieManager.removeDead();
+		//zombieManager.update();
 		container.removeDead();
 		//sunflowerList.removeDead();
 		//peashooterList.removeDead();
@@ -115,7 +116,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 
 	public boolean isEmpty(Position p) {
-		return zombieManager.isEmpty(p) && container.isEmpty(p);
+		return container.isEmpty(p);
+		//return zombieManager.isEmpty(p) && container.isEmpty(p);
 	}
 	
 	public int getCycles() {

@@ -5,7 +5,7 @@ import java.util.Random;
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
 import pvz.logic.gameobjects.ZombieFactory;
-import pvz.logic.ZombieList;
+//import pvz.logic.ZombieList;
 import utils.Position;
 
 /**
@@ -66,7 +66,7 @@ public class ZombiesManager {
 		Position zombiePosition = Game.newZombiePosition(row);
 		
 		//Tipo de Zombie
-		Zombie z = new zombieFactory.spawnZombie(zombiePosition,game);
+		Zombie z = zombieFactory.spawnZombie(rand,game,zombiePosition);
 
 		boolean canAdd = remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
@@ -82,31 +82,34 @@ public class ZombiesManager {
 		return remainingZombies;
 	}
 
-	public boolean doZombiesReachedTheHouse() {
-		return zombies.anyInColumn(-1);
-	}
+	/*public boolean doZombiesReachedTheHouse() {
+		return game.hasZombieInColumn(-1);
+		//return zombies.anyInColumn(-1);
+	}*/
 
-	public void damageZombie(Position p, int damage) {
+	/*public void damageZombie(Position p, int damage) {
+		
 		zombies.damage(p, damage);
-	}
+	}*/
 
-	public String iconInPosition(Position p) {
+	/*public String iconInPosition(Position p) {
 		return zombies.iconInPosition(p);
-	}
+	}*/
 
-	public boolean isEmpty(Position p) {
+	/*public boolean isEmpty(Position p) {
 		return zombies.isEmpty(p);
-	}
+	}*/
 
-	public void update() {
+	/*public void update() {
 		zombies.update();
-	}
+	}*/
 
-	public boolean allZombiesWereKilled() {
-		return remainingZombies == 0 && zombies.size() == 0;
-	}
+	/*public boolean allZombiesWereKilled() {
+		return remainingZombies == 0 && !game.hasZombies();
+		//return remainingZombies == 0 && zombies.size() == 0;
+	}*/
 
-	public void removeDead() {
+	/*public void removeDead() {
 		zombies.removeDead();
-	}
+	}*/
 }

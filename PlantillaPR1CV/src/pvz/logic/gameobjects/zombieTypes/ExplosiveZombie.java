@@ -12,7 +12,7 @@ public class ExplosiveZombie extends Zombie{
 	private static final String SYMBOL = Messages.EXPLOSIVE_ZOMBIE_SYMBOL;
 	private static final String NAME = Messages.EXPLOSIVE_ZOMBIE_NAME;
 	
-	public NormalZombie(GameWorld gw, Position position) {
+	public ExplosiveZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
 		moveEveryCycles=MOVE_EVERY_CYCLE;
@@ -28,7 +28,7 @@ public class ExplosiveZombie extends Zombie{
 
 	@Override
 	public void onExit() {
-		// Explosión
+		// Explosiï¿½n
 		
 	}
 

@@ -12,7 +12,7 @@ public class BucketHeadZombie extends Zombie{
 	private static final String SYMBOL = Messages.BUCKET_HEAD_ZOMBIE_SYMBOL;
 	private static final String NAME = Messages.BUCKET_HEAD_ZOMBIE_NAME;
 	
-	public NormalZombie(GameWorld gw, Position position) {
+	public BucketHeadZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
 		moveEveryCycles=MOVE_EVERY_CYCLE;

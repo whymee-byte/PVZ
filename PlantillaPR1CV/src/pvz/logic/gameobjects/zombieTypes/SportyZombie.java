@@ -12,7 +12,7 @@ public class SportyZombie extends Zombie{
 	private static final String SYMBOL = Messages.SPORTY_ZOMBIE_SYMBOL;
 	private static final String NAME = Messages.SPORTY_ZOMBIE_NAME;
 	
-	public NormalZombie(GameWorld gw, Position position) {
+	public SportyZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
 		moveEveryCycles=MOVE_EVERY_CYCLE;

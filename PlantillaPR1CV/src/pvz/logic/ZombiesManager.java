@@ -26,6 +26,7 @@ public class ZombiesManager {
 	private Random rand;
 
 	private int remainingZombies;
+	private int aliveZombies;
 	
 	private ZombieFactory zombieFactory;
 
@@ -73,8 +74,13 @@ public class ZombiesManager {
 		if(canAdd) {	
 			game.addGameObject(z);
 			remainingZombies--;
+			aliveZombies++;
 		}
 		return canAdd;
+	}
+	
+	public void zombieDied() {
+		aliveZombies--;
 	}
 
 	// TODO fill your code
@@ -82,10 +88,10 @@ public class ZombiesManager {
 		return remainingZombies;
 	}
 
-	/*public boolean doZombiesReachedTheHouse() {
-		return game.hasZombieInColumn(-1);
+	public boolean doZombiesReachedTheHouse() {
+		return game.hasObjectInColumn(-1);
 		//return zombies.anyInColumn(-1);
-	}*/
+	}
 
 	/*public void damageZombie(Position p, int damage) {
 		
@@ -104,10 +110,10 @@ public class ZombiesManager {
 		zombies.update();
 	}*/
 
-	/*public boolean allZombiesWereKilled() {
-		return remainingZombies == 0 && !game.hasZombies();
+	public boolean allZombiesWereKilled() {
+		return remainingZombies == 0 && aliveZombies == 0;
 		//return remainingZombies == 0 && zombies.size() == 0;
-	}*/
+	}
 
 	/*public void removeDead() {
 		zombies.removeDead();

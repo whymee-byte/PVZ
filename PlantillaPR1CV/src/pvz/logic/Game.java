@@ -108,7 +108,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	
 	
 	public void attackPlant(Position p,int damage) {
-		zombieManager.damageZombie(p, damage);
+		//zombieManager.damageZombie(p, damage);
 	}
 	
 	public static Position newZombiePosition(int row) {
@@ -210,5 +210,13 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		this.container=new GameObjectContainer();
 		this.zombieManager=new ZombiesManager(this,level,rand);
 		
+	}
+	
+	public void zombieDied() {
+		zombieManager.zombieDied();
+	}
+	
+	public boolean hasObjectInColumn(int col) {
+		return container.hasObjectInColumn(col);
 	}
 }

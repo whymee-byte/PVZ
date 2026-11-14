@@ -16,4 +16,5 @@ public interface GameWorld {
 	public String positionToString(Position position);
 	public GameItem getGameItemInPosition(Position position);
 	
+	void zombieDied();
 }

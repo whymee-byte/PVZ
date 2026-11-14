@@ -35,7 +35,5 @@ public class ZombieFactory {
 			 sb.add(z.getDescription());
 		 }
 		 return sb.toString();
-
 	}
-
 }

@@ -67,4 +67,11 @@ public class GameObjectContainer {
 		}
 		return "";
 	}
+	
+	public boolean hasObjectInColumn(int col) {
+		for (GameObject obj : gameObjects) {
+			if (obj.isInColumn(col)) return true;
+		}
+		return false;
+	}
 }

@@ -45,4 +45,9 @@ public abstract class GameObject implements GameItem {
     public boolean receiveZombieAttack(int damage) { //Tiene que ser sobreescrito por las plantas
         return false;
     }
+
+	public boolean isInColumn(int col) {
+		// TODO Auto-generated method stub
+		return position.column() == col;
+	}
 }

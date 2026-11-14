@@ -16,8 +16,14 @@ public abstract class Zombie extends GameObject{
 	protected int damage;
 	protected int initialHealth;
 	protected int moveEveryCycles;
-
 	
+	public abstract String shortName();
+	public abstract String longName();
+	public boolean matchZombie(String nombre) {
+        return longName().equalsIgnoreCase(nombre) || shortName().equalsIgnoreCase(nombre);
+    }
+
+	public abstract Zombie create(GameWorld game, Position position);
 
 	
 
@@ -83,4 +89,5 @@ public abstract class Zombie extends GameObject{
 	public String getDescription() {
 		return Messages.ZOMBIE_DESCRIPTION;
 	}
+	
 }

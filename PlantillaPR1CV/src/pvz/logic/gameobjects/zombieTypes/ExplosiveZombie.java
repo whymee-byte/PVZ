@@ -12,6 +12,9 @@ public class ExplosiveZombie extends Zombie{
 	private static final String SYMBOL = Messages.EXPLOSIVE_ZOMBIE_SYMBOL;
 	private static final String NAME = Messages.EXPLOSIVE_ZOMBIE_NAME;
 	
+	public ExplosiveZombie() {
+		this(null,null);
+	}
 	public ExplosiveZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
@@ -19,6 +22,10 @@ public class ExplosiveZombie extends Zombie{
 		damage=DAMAGE;
 	}
 
+	@Override
+	public Zombie create(GameWorld game, Position position) {
+		return new ExplosiveZombie(game, position);
+	}
 
 	@Override
 	public void onEnter() {
@@ -32,4 +39,12 @@ public class ExplosiveZombie extends Zombie{
 		
 	}
 
+	@Override
+	public String shortName() {
+		return SYMBOL;
+	}
+	@Override
+	public String longName() {
+		return NAME;
+	}
 }

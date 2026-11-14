@@ -14,12 +14,20 @@ public class NormalZombie extends Zombie{
 	private static final String DESCRIPTION = Messages.ZOMBIE_DESCRIPTION;
 	private static final String ICON = Messages.ZOMBIE_ICON;
 	private static final String NAME_AND_SHORTCUT = Messages.ZOMBIE_NAME_AND_SHORTCUT;
-	
+
+	public NormalZombie() {
+		this(null,null);
+	}
 	public NormalZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
 		moveEveryCycles=MOVE_EVERY_CYCLE;
 		damage=DAMAGE;
+	}
+	
+	@Override
+	public Zombie create(GameWorld game, Position position) {
+		return new NormalZombie(game, position);
 	}
 
 
@@ -35,4 +43,12 @@ public class NormalZombie extends Zombie{
 		
 	}
 
+	@Override
+	public String shortName() {
+		return SYMBOL;
+	}
+	@Override
+	public String longName() {
+		return NAME;
+	}
 }

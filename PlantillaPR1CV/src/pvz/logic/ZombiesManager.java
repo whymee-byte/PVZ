@@ -4,6 +4,7 @@ import java.util.Random;
 
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
+import pvz.logic.gameobjects.ZombieFactory;
 import pvz.logic.ZombieList;
 import utils.Position;
 
@@ -25,6 +26,8 @@ public class ZombiesManager {
 	private Random rand;
 
 	private int remainingZombies;
+	
+	private ZombieFactory zombieFactory;
 
 
 	public ZombiesManager(Game game, Level level, Random rand) {
@@ -32,7 +35,7 @@ public class ZombiesManager {
 		this.level = level;
 		this.rand = rand;
 		this.remainingZombies = level.getNumberOfZombies();
-		
+		this.zombieFactory = new ZombieFactory();
 	}
 
 	/**
@@ -59,14 +62,16 @@ public class ZombiesManager {
 	}
 
 	public boolean addZombie(int row) {
+		//Orden: fila > tipo > prob
 		Position zombiePosition = Game.newZombiePosition(row);
+		
+		//Tipo de Zombie
+		Zombie z = new zombieFactory.spawnZombie(zombiePosition,game);
 
 		boolean canAdd = remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
-		if(canAdd) {
-			// TODO fill your code
-			Zombie z = new Zombie(zombiePosition,game);
-			game.addGameObject();
+		if(canAdd) {	
+			game.addGameObject(z);
 			remainingZombies--;
 		}
 		return canAdd;

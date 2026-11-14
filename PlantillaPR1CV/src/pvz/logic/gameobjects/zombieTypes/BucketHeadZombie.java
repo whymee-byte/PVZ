@@ -12,6 +12,9 @@ public class BucketHeadZombie extends Zombie{
 	private static final String SYMBOL = Messages.BUCKET_HEAD_ZOMBIE_SYMBOL;
 	private static final String NAME = Messages.BUCKET_HEAD_ZOMBIE_NAME;
 	
+	public BucketHeadZombie() {
+		this(null,null);
+	}
 	public BucketHeadZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
@@ -19,6 +22,10 @@ public class BucketHeadZombie extends Zombie{
 		damage=DAMAGE;
 	}
 
+	@Override
+	public Zombie create(GameWorld game, Position position) {
+		return new BucketHeadZombie(game, position);
+	}
 
 	@Override
 	public void onEnter() {
@@ -30,6 +37,15 @@ public class BucketHeadZombie extends Zombie{
 	public void onExit() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String shortName() {
+		return SYMBOL;
+	}
+	@Override
+	public String longName() {
+		return NAME;
 	}
 
 }

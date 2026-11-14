@@ -12,6 +12,9 @@ public class SportyZombie extends Zombie{
 	private static final String SYMBOL = Messages.SPORTY_ZOMBIE_SYMBOL;
 	private static final String NAME = Messages.SPORTY_ZOMBIE_NAME;
 	
+	public SportyZombie() {
+		this(null,null);
+	}
 	public SportyZombie(GameWorld gw, Position position) {
 		super(gw, position);
 		health=INITIAL_HEALTH;
@@ -19,7 +22,11 @@ public class SportyZombie extends Zombie{
 		damage=DAMAGE;
 	}
 
-
+	@Override
+	public Zombie create(GameWorld game, Position position) {
+		return new SportyZombie(game, position);
+	}
+	
 	@Override
 	public void onEnter() {
 		// TODO Auto-generated method stub
@@ -32,4 +39,12 @@ public class SportyZombie extends Zombie{
 		
 	}
 
+	@Override
+	public String shortName() {
+		return SYMBOL;
+	}
+	@Override
+	public String longName() {
+		return NAME;
+	}
 }

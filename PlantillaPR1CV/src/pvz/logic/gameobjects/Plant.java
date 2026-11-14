@@ -34,11 +34,4 @@ public abstract class Plant extends GameObject {
         receiveDamage(damage);
         return true;
     }
-
-    public void receiveDamage(int damage) {
-        health -= damage;
-        if (health <= 0) {
-            setAlive(false);
-        }
-    }
 }

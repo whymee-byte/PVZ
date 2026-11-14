@@ -109,6 +109,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	
 	public void attackPlant(Position p,int damage) {
 		//zombieManager.damageZombie(p, damage);
+		container.attackPlant(p, damage, NUM_COLS);
 	}
 	
 	public static Position newZombiePosition(int row) {

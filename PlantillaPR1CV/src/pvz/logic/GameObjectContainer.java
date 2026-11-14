@@ -80,4 +80,13 @@ public class GameObjectContainer {
 			if (obj.isInPosition(p)) obj.receiveZombieAttack(damage);
 		}
 	}
+	
+	public void attackPlant(Position p, int damage, int maxCol) {
+		while (p.column() < maxCol) {
+			for (GameObject obj : gameObjects) {
+				if (obj.isInPosition(p) && obj.receivePlantAttack(damage)) return;
+			}
+			p = p.right();
+		}
+	}
 }

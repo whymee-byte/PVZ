@@ -91,4 +91,9 @@ public abstract class Zombie extends GameObject{
 		return Messages.ZOMBIE_DESCRIPTION;
 	}
 	
+	@Override
+    public boolean receivePlantAttack(int damage) {
+        receiveDamage(damage);
+        return true;
+    }
 }

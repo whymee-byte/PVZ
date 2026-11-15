@@ -20,12 +20,16 @@ public class ZombieFactory {
 	);
 
 	public static Zombie spawnZombie(Random rand, GameWorld game, Position position) {
-		/*for(Zombie z : AVAILABLE_ZOMBIES) {
-			if(z.matchZombie(zombieName)) {
-				return z.create(game,position);
-			}
-		}*/
 		return AVAILABLE_ZOMBIES.get(rand.nextInt(AVAILABLE_ZOMBIES.size())).create(game,position);
+	}
+
+	public static Zombie spawnZombie(String name, GameWorld game, Position position) {
+		for (Zombie prototype : AVAILABLE_ZOMBIES) {
+			if (prototype.matchZombie(name)) {
+				return prototype.create(game, position);
+			}
+		}
+		return null;
 	}
 
 	public static String getAvailableZombies(){

@@ -31,7 +31,7 @@ public class AddPlantCommand extends Command{
 			int row=Integer.parseInt(argumentos[3]);
 			return new AddPlantCommand(argumentos[1],col,row);
 		}catch(NumberFormatException e){
-			return null;
+			return new IllegalParametersCommand(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
 		}
 		
 	}

@@ -29,9 +29,11 @@ public abstract class Zombie extends GameObject{
 
 	public Zombie(GameWorld gw, Position position) {
 		super(gw,position);
-//		health = INITIAL_HEALTH;
-//		this.cyclesSinceLastMovement = -1;
+	}
 
+	public void startMovementNextCycle() {
+		// El update del turno de colocación llevará el contador a cero.
+		cyclesSinceLastMovement = -1;
 	}
 
 	public boolean isInPosition(Position position) {
@@ -80,15 +82,15 @@ public abstract class Zombie extends GameObject{
 	}
 
 	private void attack() {
-		gw.attackZombie(position.left(), damage);
+		gw.damagePlantAt(position.left(), damage);
 	}
 	
 	public String getIcon() {
-		return String.format(Messages.ZOMBIE_ICON, health);
+		return String.format(Messages.GAME_OBJECT_ICON, shortName(), health);
 	}
 	@Override
 	public String getDescription() {
-		return Messages.ZOMBIE_DESCRIPTION;
+		return String.format(Messages.ZOMBIE_DESCRIPTION, longName(), moveEveryCycles, damage, initialHealth);
 	}
 	
 	@Override

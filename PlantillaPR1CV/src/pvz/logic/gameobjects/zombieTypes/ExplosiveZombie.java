@@ -1,11 +1,13 @@
 package pvz.logic.gameobjects.zombieTypes;
 
 import pvz.logic.GameWorld;
+import pvz.logic.actions.ExplosionAction;
 import pvz.logic.gameobjects.Zombie;
 import pvz.view.Messages;
 import utils.Position;
 
 public class ExplosiveZombie extends Zombie{
+	private static final int EXPLOSION_DAMAGE = 3;
 	private final int INITIAL_HEALTH=5;
 	private final int MOVE_EVERY_CYCLE=2;
 	private final int DAMAGE=1;
@@ -17,7 +19,8 @@ public class ExplosiveZombie extends Zombie{
 	}
 	public ExplosiveZombie(GameWorld gw, Position position) {
 		super(gw, position);
-		health=INITIAL_HEALTH;
+		initialHealth = INITIAL_HEALTH;
+		health = initialHealth;
 		moveEveryCycles=MOVE_EVERY_CYCLE;
 		damage=DAMAGE;
 	}
@@ -35,8 +38,8 @@ public class ExplosiveZombie extends Zombie{
 
 	@Override
 	public void onExit() {
-		// Explosi�n
 		gw.zombieDied();
+		gw.pushAction(new ExplosionAction(EXPLOSION_DAMAGE, position, false));
 	}
 
 	@Override

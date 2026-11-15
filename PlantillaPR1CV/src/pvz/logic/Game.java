@@ -1,18 +1,19 @@
 package pvz.logic;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Random;
 
 import pvz.control.Level;
+import pvz.logic.actions.GameAction;
+import pvz.logic.gameobjects.Plant;
+import pvz.logic.gameobjects.PlantFactory;
 import utils.Position;
 //import pvz.logic.PeashooterList;
 //import pvz.logic.SunflowerList;
-import pvz.logic.gameobjects.*;
-import pvz.view.GamePrinter;
-import pvz.view.GameView;
-import pvz.view.Messages;
+
 
 public class Game implements GameStatus, GameWorld, GameModel {
-	public final static int NUM_ROWS = 4;
-	public final static int NUM_COLS = 8;
+
 	public final static int INITIAL_COINS = 50;
 	
 	private int cycles;
@@ -23,20 +24,12 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private Level level;
 	private ZombiesManager zombieManager; //Esto habrá que moverlo supongo pero no tengo claro a dónde
 	private GameObjectContainer container;
+	private Deque<GameAction> actions;
 	//private PeashooterList peashooterList;
 	//private SunflowerList sunflowerList;
 	
 	public Game(Long seed, Level level){
-		this.longSeed = seed;
-		this.cycles = 0;
-		this.coins = INITIAL_COINS;
-		this.rand = new Random(seed);
-		this.level = level;
-		this.container = new GameObjectContainer();
-		//this.peashooterList = new PeashooterList();
-		//this.sunflowerList = new SunflowerList();
-		this.zombieManager = new ZombiesManager(this,level,rand);
-		this.playerQuit = false;
+		reset(level, seed);
 	}
 	
 	public String positionToString(Position position) {
@@ -63,12 +56,14 @@ public class Game implements GameStatus, GameWorld, GameModel {
 			return true;
 		}else if(playerWins()) {
 			return true;
-		}else if (zombieManager.doZombiesReachedTheHouse()){
+		}else if (zombiesWin()){
 			return true;
 		}
 		return false;
 	}
-	
+	public boolean zombiesWin() {
+		return zombieManager.doZombiesReachedTheHouse();
+	}
 	public boolean playerWins() {
 		return zombieManager.allZombiesWereKilled();
 	}
@@ -82,16 +77,30 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 	
 	public void update() {
-		cycles++;
+		executePendingActions();
 		zombieManager.addZombie();
 		container.update();
-		//sunflowerList.update();
-		//peashooterList.update();
-		//zombieManager.removeDead();
-		//zombieManager.update();
-		container.removeDead();
-		//sunflowerList.removeDead();
-		//peashooterList.removeDead();
+		//si hay un muerto extra, se apila dentro
+		do {
+			executePendingActions();
+		} while (container.removeDead());
+		cycles++;
+	}
+
+	@Override
+	public void pushAction(GameAction action) {
+		actions.addLast(action);
+	}
+
+	private void executePendingActions() {
+		while (!actions.isEmpty()) {
+			actions.removeLast().execute(this);
+		}
+	}
+
+	@Override
+	public boolean addZombie(String name, Position position) {
+		return zombieManager.addZombie(name, position);
 	}
 	
 	public void reset() {
@@ -194,9 +203,19 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return container.getGameItemInPosition(position);
 		
 	}
+//	@Override
+//	public void attackZombie(Position p, int damage) {
+//		container.attackZombie(p, damage);
+//	}
+
 	@Override
-	public void attackZombie(Position p, int damage) {
-		container.attackZombie(p, damage);
+	public void damagePlantAt(Position position, int damage) {
+		container.attackZombie(position, damage);
+	}
+
+	@Override
+	public void damageZombieAt(Position position, int damage) {
+		container.damageZombieAt(position, damage);
 	}
 
 	@Override
@@ -208,6 +227,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		this.playerQuit=false;
 		this.rand=new Random(seed);
 		this.container=new GameObjectContainer();
+		this.actions = new ArrayDeque<>();
 		this.zombieManager=new ZombiesManager(this,level,rand);
 		
 	}

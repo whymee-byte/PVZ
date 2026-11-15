@@ -9,9 +9,8 @@ public interface GameModel {
 	void reset(Level level, long seed);
 	void update();
 	void quit();
-	public boolean playerWins();
-	public boolean playerQuits();
 	public boolean hasGameFinished();
 	public boolean addGameObject(String plantName, Position position,boolean cost);
+	boolean addZombie(String name, Position position);
 	
 }

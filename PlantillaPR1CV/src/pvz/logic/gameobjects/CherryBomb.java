@@ -1,6 +1,7 @@
 package pvz.logic.gameobjects;
 
 import pvz.logic.GameWorld;
+import pvz.logic.actions.ExplosionAction;
 import pvz.view.Messages;
 import utils.Position;
 
@@ -64,9 +65,9 @@ public class CherryBomb extends Plant{
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		cycle++;
 		if(cycle==COOLDOWN) {
+			gw.pushAction(new ExplosionAction(DAMAGE, position, true));
 			setAlive(false);
 			
 		}

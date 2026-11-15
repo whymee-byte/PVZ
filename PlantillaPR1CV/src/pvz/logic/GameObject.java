@@ -46,6 +46,7 @@ public abstract class GameObject implements GameItem {
         return false;
     }
     
+    @Override
     public boolean receivePlantAttack(int damage) { //Tiene que ser sobreescrito por los zombies
     	return false;
     }

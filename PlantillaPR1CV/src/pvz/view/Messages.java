@@ -135,6 +135,7 @@ public class Messages {
 	public static final String COMMAND_ADD_ZOMBIE_SHORTCUT = "az";
 	public static final String COMMAND_ADD_ZOMBIE_DETAILS = "[a]dd[Z]ombie <zombie> <col> <row>";
 	public static final String COMMAND_ADD_ZOMBIE_HELP = "add a zombie in position (col, row)";
+	public static final String COULD_NOT_ADD_ZOMBIE = "Could not add zombie";
 
 	public static final String COMMAND_LIST_PLANTS_NAME = "list";
 	public static final String COMMAND_LIST_PLANTS_SHORTCUT = "l";
@@ -145,6 +146,7 @@ public class Messages {
 	public static final String COMMAND_LIST_ZOMBIES_SHORTCUT = "lz";
 	public static final String COMMAND_LIST_ZOMBIES_DETAILS = "[l]ist[Z]ombies";
 	public static final String COMMAND_LIST_ZOMBIES_HELP = "print the list of available zombies";
+	public static final String AVAILABLE_ZOMBIES = "Available zombies:";
 
 	public static final String COMMAND_RESET_NAME = "reset";
 	public static final String COMMAND_RESET_SHORTCUT = "r";

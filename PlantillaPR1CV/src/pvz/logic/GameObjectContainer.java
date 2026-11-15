@@ -25,14 +25,17 @@ public class GameObjectContainer {
 		}
 	}
 
-	public void removeDead() {
+	public boolean removeDead() {
+		boolean removed = false;
 		for (int i = gameObjects.size() - 1; i >= 0; i--) {
 			GameObject obj = gameObjects.get(i);
 			if (!obj.isAlive()) {
 				obj.onExit();
 				gameObjects.remove(i);
+				removed = true;
 			}
 		}
+		return removed;
 	}
 
 	public boolean isEmpty(Position position) {
@@ -50,7 +53,7 @@ public class GameObjectContainer {
 
 	public GameItem getGameItemInPosition(Position position) {
 		for (GameObject obj : gameObjects) {
-			if (obj.isInPosition(position)) {
+			if (obj.isAlive() && obj.isInPosition(position)) {
 				return obj;
 			}
 		}
@@ -83,10 +86,17 @@ public class GameObjectContainer {
 	
 	public void attackPlant(Position p, int damage, int maxCol) {
 		while (p.column() < maxCol) {
-			for (GameObject obj : gameObjects) {
-				if (obj.isInPosition(p) && obj.receivePlantAttack(damage)) return;
-			}
+			if (damageZombieAt(p, damage)) return;
 			p = p.right();
 		}
+	}
+
+	public boolean damageZombieAt(Position position, int damage) {
+		for (GameObject obj : gameObjects) {
+			if (obj.isInPosition(position) && obj.isAlive() && obj.receivePlantAttack(damage)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

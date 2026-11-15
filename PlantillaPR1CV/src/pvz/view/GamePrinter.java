@@ -5,11 +5,8 @@ import static pvz.view.Messages.debug;
 import static pvz.view.Messages.error;
 import utils.StringUtils;
 
-import pvz.logic.Game;
-import pvz.logic.GameWorld;
 import pvz.logic.GameStatus;
 import utils.Position;
-import utils.StringUtils;
 
 import java.util.Scanner;
 
@@ -43,7 +40,7 @@ public class GamePrinter implements GameView {
 
 	private static final String CELL_BORDER = StringUtils.repeat(CELL_BORDER_CHAR, CELL_SIZE);
 
-	private static final String ROW_BORDER = SPACE + StringUtils.repeat(CELL_BORDER + SPACE, Game.NUM_COLS);
+	private static final String ROW_BORDER = SPACE + StringUtils.repeat(CELL_BORDER + SPACE, GameStatus.NUM_COLS);
 
 	private static final String INDENTED_ROW_BORDER = String.format("%n%s%s%n", MARGIN, ROW_BORDER);
 
@@ -62,9 +59,9 @@ public class GamePrinter implements GameView {
 	 */
 	private String getInfo() {
 		StringBuilder buffer = new StringBuilder();
-
-		// TODO fill your code
-
+		buffer.append(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
+		buffer.append(String.format(Messages.NUMBER_OF_COINS, game.getCoins()));
+		buffer.append(String.format(Messages.REMAINING_ZOMBIES, game.getRemainingZombies()));
 		return buffer.toString();
 	}
 
@@ -81,9 +78,9 @@ public class GamePrinter implements GameView {
 		// Paint game board
 		str.append(INDENTED_ROW_BORDER);
 
-		for (int row = 0; row < GameWorld.NUM_ROWS; row++) {
+		for (int row = 0; row < GameStatus.NUM_ROWS; row++) {
 			str.append(MARGIN).append(VERTICAL_DELIMITER);
-			for (int col = 0; col < GameWorld.NUM_COLS; col++) {
+			for (int col = 0; col < GameStatus.NUM_COLS; col++) {
 				str.append(StringUtils.centre(game.positionToString(new Position(row, col)), CELL_SIZE)).append(VERTICAL_DELIMITER);
 			}
 			str.append(INDENTED_ROW_BORDER);
@@ -99,6 +96,14 @@ public class GamePrinter implements GameView {
 	public void showEndMessage() {
 		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
 		// TODO fill your code
+		buffer.append(NEW_LINE);
+		if(game.playerQuits()) {
+			buffer.append(Messages.PLAYER_QUITS);
+		}else if(game.zombiesWin()) {
+			buffer.append(Messages.ZOMBIES_WIN);
+		}else if(game.playerWins()) {
+			buffer.append(Messages.PLAYER_WINS);
+		}
 		System.out.println(buffer);
 	}
 

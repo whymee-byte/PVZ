@@ -20,7 +20,8 @@ public class NormalZombie extends Zombie{
 	}
 	public NormalZombie(GameWorld gw, Position position) {
 		super(gw, position);
-		health=INITIAL_HEALTH;
+		initialHealth = INITIAL_HEALTH;
+		health = initialHealth;
 		moveEveryCycles=MOVE_EVERY_CYCLE;
 		damage=DAMAGE;
 	}

@@ -32,7 +32,7 @@ public class AddPlantCheatCommand extends Command {
         	//quizas puede haber un error de row y col
         	int col=Integer.parseInt(words[2]);
         	int row=Integer.parseInt(words[3]);
-        	return new AddPlantCheatCommand(words[1],new Position(col,row));
+        	return new AddPlantCheatCommand(words[1],new Position(row,col));
         }catch(NumberFormatException e){
         	return new IllegalParametersCommand(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
         }
@@ -41,7 +41,7 @@ public class AddPlantCheatCommand extends Command {
     @Override
     public void execute(GameModel model, GameView view) {
     	if(!model.addGameObject(plantName, position, true)) {
-			view.showError(Messages.INVALID_POSITION);
+			view.showError("Could not add plant");
 			return;
 		}else {
 			model.update();

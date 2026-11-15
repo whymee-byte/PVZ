@@ -28,6 +28,19 @@ public class Position {
 	public Position right() {
 		return new Position(row, col + 1);
 	}
+
+	public Position[] adjacentPositions() {
+		Position[] neighbors = new Position[8];
+		int index = 0;
+		for (int r = -1; r <= 1; r++) {
+			for (int c = -1; c <= 1; c++) {
+				if (r != 0 || c != 0) {
+					neighbors[index++] = new Position(r + row, c + col);
+				}
+			}
+		}
+		return neighbors;
+	}
 	
 	public boolean isHorizontallyAligned(Position p) {
 		return row == p.row();

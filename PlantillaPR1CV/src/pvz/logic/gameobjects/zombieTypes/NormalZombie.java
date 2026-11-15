@@ -40,7 +40,7 @@ public class NormalZombie extends Zombie{
 	@Override
 	public void onExit() {
 		// TODO Auto-generated method stub
-		
+		gw.zombieDied();
 	}
 
 	@Override

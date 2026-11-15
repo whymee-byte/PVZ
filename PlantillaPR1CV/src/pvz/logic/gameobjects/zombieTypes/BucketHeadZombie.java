@@ -36,7 +36,7 @@ public class BucketHeadZombie extends Zombie{
 	@Override
 	public void onExit() {
 		// TODO Auto-generated method stub
-		
+		gw.zombieDied();
 	}
 	
 	@Override

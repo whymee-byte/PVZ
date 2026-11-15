@@ -37,6 +37,7 @@ public class ZombiesManager {
 		this.rand = rand;
 		this.remainingZombies = level.getNumberOfZombies();
 		this.zombieFactory = new ZombieFactory();
+		this.aliveZombies = 0;
 	}
 
 	/**

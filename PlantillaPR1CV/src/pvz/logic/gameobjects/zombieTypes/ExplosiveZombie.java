@@ -36,7 +36,7 @@ public class ExplosiveZombie extends Zombie{
 	@Override
 	public void onExit() {
 		// Explosi�n
-		
+		gw.zombieDied();
 	}
 
 	@Override

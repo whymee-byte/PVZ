@@ -14,13 +14,6 @@ public class HelpCommand extends Command{
 
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO Auto-generated method stub
 		view.showMessage(Command.getAvailableCommandsHelp());
-		
 	}
-
-
-	
-	
-
 }

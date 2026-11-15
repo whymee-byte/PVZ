@@ -17,6 +17,7 @@ public class ResetCommand extends Command{
 		this.level=difficulty;
 		this.seed=seed;
 	}
+	
 	@Override
 	public Command create(String[]argumentos) {
 		if(argumentos.length==1)return this;
@@ -28,20 +29,18 @@ public class ResetCommand extends Command{
 		try {
 			long seed=Long.parseLong(argumentos[2]);
 			return  new ResetCommand(level,seed);
-		}catch(NumberFormatException ex) {
+		} catch(NumberFormatException ex) {
 			return new IllegalParametersCommand(Messages.SEED_NOT_A_NUMBER);
 		}
 	}
+	
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO Auto-generated method stub
 		if(level==null) {
 			model.reset();
-		}else {
+		} else {
 			model.reset(level, seed);
 		}
 		view.showGame();
-		
 	}
-
 }

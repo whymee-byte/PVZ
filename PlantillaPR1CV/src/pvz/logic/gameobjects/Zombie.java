@@ -8,9 +8,6 @@ import pvz.view.Messages;
 
 
 public abstract class Zombie extends GameObject{
-//	private final int INITIAL_HEALTH = 5;
-//	private final int DAMAGE = 1;
-//	private final int MOVE_EVERY_CYCLES = 2;
 	
 	private int cyclesSinceLastMovement;
 	protected int damage;
@@ -24,8 +21,6 @@ public abstract class Zombie extends GameObject{
     }
 
 	public abstract Zombie create(GameWorld game, Position position);
-
-	
 
 	public Zombie(GameWorld gw, Position position) {
 		super(gw,position);
@@ -61,10 +56,6 @@ public abstract class Zombie extends GameObject{
 				move();
 			}
 		} else {
-			/*GameItem item= gw.getGameItemInPosition(position);
-			if(item!=null) {
-				item.receiveZombieAttack(damage);
-			}*/
 			attack();
 		}
 	}
@@ -88,6 +79,7 @@ public abstract class Zombie extends GameObject{
 	public String getIcon() {
 		return String.format(Messages.GAME_OBJECT_ICON, shortName(), health);
 	}
+	
 	@Override
 	public String getDescription() {
 		return String.format(Messages.ZOMBIE_DESCRIPTION, longName(), moveEveryCycles, damage, initialHealth);

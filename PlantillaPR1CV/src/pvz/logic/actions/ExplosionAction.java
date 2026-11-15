@@ -24,7 +24,7 @@ public class ExplosionAction implements GameAction {
 			if(!game.isInsideBoard(positions[i]))continue;
 			if(damagesZombies) {
 				game.damageZombieAt(positions[i], damage);
-			}else {
+			} else {
 				game.damagePlantAt(positions[i], damage);
 			}
 			

@@ -18,7 +18,7 @@ public class Position {
 	}
 	
 	public String toString() {
-		return "";	//Placeholder
+		return "";
 	}
 	
 	public Position left() {
@@ -49,10 +49,11 @@ public class Position {
 	public boolean isVerticallyAligned(Position p) {
 		return col == p.column();
 	}
+	
 	public boolean equals(Position p) {
 		if(isVerticallyAligned(p) && isHorizontallyAligned(p)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}

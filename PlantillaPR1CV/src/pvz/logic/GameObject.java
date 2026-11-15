@@ -29,6 +29,7 @@ public abstract class GameObject implements GameItem {
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
+    
     public abstract String getIcon();
 
     public abstract String getDescription();
@@ -52,7 +53,6 @@ public abstract class GameObject implements GameItem {
     }
 
 	public boolean isInColumn(int col) {
-		// TODO Auto-generated method stub
 		return position.column() == col;
 	}
 	

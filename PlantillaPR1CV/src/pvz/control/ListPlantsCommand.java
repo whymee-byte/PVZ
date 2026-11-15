@@ -19,5 +19,4 @@ public class ListPlantsCommand extends Command {
 	public void execute(GameModel model, GameView view) {
 	    view.showMessage(PlantFactory.getAvailablePlants());
 	}
-
 }

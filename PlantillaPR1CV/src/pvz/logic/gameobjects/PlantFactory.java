@@ -26,14 +26,12 @@ public class PlantFactory {
 		return null;
 	}
 
-	public static String getAvailablePlants(){
+	public static String getAvailablePlants() {
 		 StringJoiner sb = new StringJoiner(Messages.LINE_SEPARATOR);
 
 		 for(Plant p: AVAILABLE_PLANTS) {
 			 sb.add(p.getDescription());
 		 }
 		 return sb.toString();
-
 	}
-
 }

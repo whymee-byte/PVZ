@@ -16,6 +16,7 @@ public abstract class Command {
 			new ExitCommand(),
 			new UpdateCommand()
 	);
+	
 	protected String name;
 	protected String shortcut;
 	protected String details;
@@ -25,6 +26,7 @@ public abstract class Command {
 	protected String getShortcut() {return shortcut;}
 	protected String getdetails() {return details;}
 	protected String getHelp() {return help;}
+	
 	public static Command parse(String[] commandWords) {
 		for(Command c: AVAILABLE_COMMANDS) {
 			if(c.matchCommand(commandWords[0])) {
@@ -38,14 +40,16 @@ public abstract class Command {
 		}
 		return new UnknownCommand();
 	}
+	
 	boolean matchCommand(String Command) {
 		return Command.equalsIgnoreCase(this.name)||Command.equalsIgnoreCase(this.shortcut);
 	}
+	
 	protected Command create(String [] argumentos) {
 		if(argumentos.length!=1)return null;
 		return this;
-		
 	}
+	
 	public abstract void execute(GameModel model, GameView view);
 	
 	public static String getAvailableCommandsHelp() {

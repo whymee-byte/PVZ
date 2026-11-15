@@ -10,18 +10,6 @@ import utils.Position;
 
 import java.util.Scanner;
 
-/**
- * View component of the game (the V in MVC).
- *
- * <p>Renders the current game state as a formatted string: a status header
- * (cycle count, sun coins, remaining zombies) followed by the ASCII board grid.
- * Also produces the end-of-game message distinguishing player win, player quit,
- * and zombie win outcomes.
- *
- * <p>This class is read-only with respect to {@link Game}: it queries game state
- * through the public API and never modifies it. All string literals and format
- * templates are sourced from {@link Messages}.
- */
 public class GamePrinter implements GameView {
 
 	private static final String SPACE = " ";
@@ -52,11 +40,6 @@ public class GamePrinter implements GameView {
 		this.scanner = new Scanner(System.in);
 	}
 
-	/**
-	 * Builds a string that represent the game status: cycles, suncoins, remaining zombies.
-	 * 
-	 * @return the string that represents the game status.
-	 */
 	private String getInfo() {
 		StringBuilder buffer = new StringBuilder();
 		buffer.append(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
@@ -65,9 +48,6 @@ public class GamePrinter implements GameView {
 		return buffer.toString();
 	}
 
-	/**
-	 * Prints complete representation (status+board) of the game.
-	 */
 	@Override
 	public void showGame() {
 		StringBuilder str = new StringBuilder();
@@ -89,19 +69,15 @@ public class GamePrinter implements GameView {
 		System.out.println(str);
 	}
 
-	/**
-	 * Prints the message to be printed once the game has finished.
-	 */
 	@Override
 	public void showEndMessage() {
 		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
-		// TODO fill your code
 		buffer.append(NEW_LINE);
 		if(game.playerQuits()) {
 			buffer.append(Messages.PLAYER_QUITS);
-		}else if(game.zombiesWin()) {
+		} else if(game.zombiesWin()) {
 			buffer.append(Messages.ZOMBIES_WIN);
-		}else if(game.playerWins()) {
+		} else if(game.playerWins()) {
 			buffer.append(Messages.PLAYER_WINS);
 		}
 		System.out.println(buffer);

@@ -32,7 +32,6 @@ public class ExplosiveZombie extends Zombie{
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -46,6 +45,7 @@ public class ExplosiveZombie extends Zombie{
 	public String shortName() {
 		return SYMBOL;
 	}
+	
 	@Override
 	public String longName() {
 		return NAME;

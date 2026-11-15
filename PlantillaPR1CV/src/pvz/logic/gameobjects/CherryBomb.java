@@ -14,6 +14,7 @@ public class CherryBomb extends Plant{
 	private static final String SYMBOL = Messages.CHERRY_BOMB_SYMBOL;
 	private static final String NAME = Messages.CHERRY_BOMB_NAME;
 	private static final String NAME_AND_SHORT = Messages.CHERRY_BOMB_NAME_SHORTCUT;
+	
 	CherryBomb(){
 		this(null,null);
 	}
@@ -21,36 +22,30 @@ public class CherryBomb extends Plant{
 		super(game, position);
 		this.health = INITIAL_HEALTH;
 		cycle=-1;
-
 	}
 
 	@Override
 	public String shortName() {
-		// TODO Auto-generated method stub
 		return SYMBOL;
 	}
 
 	@Override
 	public int getCost() {
-		// TODO Auto-generated method stub
 		return COST;
 	}
 
 	@Override
 	public String longName() {
-		// TODO Auto-generated method stub
 		return NAME;
 	}
 
 	@Override
 	public Plant create(GameWorld game, Position position) {
-		// TODO Auto-generated method stub
 		return new CherryBomb(game,position);
 	}
 
 	@Override
 	public String getIcon() {
-		// TODO Auto-generated method stub
 		String symb;
 		if(cycle==1)symb= SYMBOL.toUpperCase();
 		else symb= SYMBOL.toLowerCase();
@@ -59,7 +54,6 @@ public class CherryBomb extends Plant{
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -69,14 +63,11 @@ public class CherryBomb extends Plant{
 		if(cycle==COOLDOWN) {
 			gw.pushAction(new ExplosionAction(DAMAGE, position, true));
 			setAlive(false);
-			
 		}
-		
 	}
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
 		
 	}
 	@Override
@@ -86,14 +77,11 @@ public class CherryBomb extends Plant{
 
 	@Override
 	public int getDamage() {
-		// TODO Auto-generated method stub
 		return DAMAGE;
 	}
+	
 	@Override
 	public String nameAndShort() {
 		return NAME_AND_SHORT;
 	}
-
-	
-
 }

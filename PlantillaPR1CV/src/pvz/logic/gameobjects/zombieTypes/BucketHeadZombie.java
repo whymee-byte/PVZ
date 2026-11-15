@@ -30,13 +30,11 @@ public class BucketHeadZombie extends Zombie{
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
 		gw.zombieDied();
 	}
 	
@@ -44,9 +42,9 @@ public class BucketHeadZombie extends Zombie{
 	public String shortName() {
 		return SYMBOL;
 	}
+	
 	@Override
 	public String longName() {
 		return NAME;
 	}
-
 }

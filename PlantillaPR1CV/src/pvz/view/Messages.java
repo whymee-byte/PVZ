@@ -2,17 +2,6 @@ package pvz.view;
 
 import pvz.control.Level;
 
-/**
- * Central repository of all user-facing string literals and format templates.
- *
- * <p>Keeps UI text out of logic and control classes. Every string that appears
- * on the console — prompts, error messages, plant descriptions, icons, and
- * end-of-game banners — is defined here as a {@code public static final}
- * constant. Format strings follow {@link String#format} conventions.
- *
- * <p>This class is not instantiable; it is a pure namespace for constants and
- * two formatting helpers ({@link #debug} and {@link #error}).
- */
 public class Messages {
 
 	public static final String VERSION = "1.0";
@@ -182,24 +171,10 @@ public class Messages {
 
 	public static final String NO_CATCHABLE_IN_POSITION = "No sun in (%d, %d)";
 
-	/**
-	 * Formats a debug message.
-	 * 
-	 * @param message debug message
-	 * 
-	 * @return the formated debug message;
-	 */
 	public static final String debug(String message) {
 		return Messages.DEBUG.formatted(message);
 	}
 
-	/**
-	 * Formats an error message.
-	 * 
-	 * @param message Error message
-	 * 
-	 * @return the formated error message;
-	 */
 	public static final String error(String message) {
 		return Messages.ERROR.formatted(message);
 	}

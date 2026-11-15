@@ -18,12 +18,13 @@ public class Sunflower extends Plant {
 		super(g,position);
 		this.cyclesSinceLastCoinGeneration = 0;
 		this.health = INITIAL_HEALTH;
-
 	}
+	
 	@Override
 	public String shortName() {
 		return Messages.SUNFLOWER_SYMBOL;
 	}
+	
 	@Override
 	public String longName() {
 		return Messages.SUNFLOWER_NAME;
@@ -33,16 +34,17 @@ public class Sunflower extends Plant {
 	public String nameAndShort() {
 		return NAME_AND_SHORT;
 	}
+	
 	@Override
 	public int getCost() {
 		return COST;
 	}
+	
 	@Override
 	public Plant create(GameWorld game, Position position) {
 		return new Sunflower(game, position);
 	}
 
-	
 	public void update() {
 		if (cyclesSinceLastCoinGeneration < COOLDOWN - 1) cyclesSinceLastCoinGeneration++;
 		else {
@@ -51,26 +53,23 @@ public class Sunflower extends Plant {
 		}
 	}
 	
-	
-
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public int getEndurance() {
 		return INITIAL_HEALTH;
 	}
+	
 	@Override
 	public int getDamage() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }

@@ -10,7 +10,6 @@ public class AddPlantCheatCommand extends Command {
     private Position position;
 
     public AddPlantCheatCommand() {
-        // TODO: inicializar name, shortcut, details y help con Messages.COMMAND_CHEAT_PLANT_*.
     	this.name=Messages.COMMAND_CHEAT_PLANT_NAME;
 		this.shortcut=Messages.COMMAND_CHEAT_PLANT_SHORTCUT;
 		this.details=Messages.COMMAND_CHEAT_PLANT_DETAILS;
@@ -43,7 +42,7 @@ public class AddPlantCheatCommand extends Command {
     	if(!model.addGameObject(plantName, position, true)) {
 			view.showError("Could not add plant");
 			return;
-		}else {
+		} else {
 			model.update();
 			view.showGame();
 		}

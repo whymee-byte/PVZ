@@ -1,16 +1,5 @@
 package utils;
 
-/**
- * Utility methods for fixed-width string formatting used by the view layer.
- *
- * <p>Provides character/string repetition ({@link #repeat}) and centre-padding
- * ({@link #centre}) to build the aligned board cells in
- * {@link tp1.pvz.view.GamePrinter}. This class is not instantiable; all methods
- * are static.
- *
- * @author Simon Pickin
- * @author Ivan Martinez-Ortiz
- */
 public class StringUtils {
 
 	public static String repeat(char c, int length) {
@@ -40,5 +29,4 @@ public class StringUtils {
 		
 	    return String.format("%s%s%s", repeat(paddingChar, paddingLeft), text, repeat(paddingChar, paddingRight));
 	}
-
 }

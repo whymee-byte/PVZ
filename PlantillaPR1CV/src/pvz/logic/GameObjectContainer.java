@@ -15,16 +15,15 @@ public class GameObjectContainer {
 		this.gameObjects.add(object);
 		object.onEnter();
 		return true;
-		//placeholder
 	}
+	
 	public int catchObject(Position position) {
-		int amountOfSunsCatched=0;
+		int amountOfSunsCatched = 0;
 		for (int i = 0; i < gameObjects.size(); i++) {
 			GameObject obj = gameObjects.get(i);
 			if(obj.catchObject(position)) amountOfSunsCatched++;
 		}
 		return amountOfSunsCatched;
-		
 	}
 
 	public void update() {

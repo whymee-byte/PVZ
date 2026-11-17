@@ -42,9 +42,11 @@ public abstract class GameObject implements GameItem {
     public void update() {
     	
     }
-    public boolean catchObject(Position position) {
+    
+    public boolean catchObject(Position position) { //Reescrito por Sun
     	return false;
     }
+    
     public abstract void onExit();
 
     @Override

@@ -34,17 +34,6 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return "";
 	}
 	
-	/*public boolean checkGameObject(String objectName) {
-		//Necesita actualizar. Comprobar en container, no con nombres pre-escritos
-		if(objectName.equals("p")||objectName.equals("peashooter")||
-				objectName.equals("s")||objectName.equals("sunflower")) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}*/
-	
 	public boolean hasGameFinished() {
 		if(playerQuits()) {
 			return true;
@@ -168,11 +157,6 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		if (p.column() < 0 || p.column() >= NUM_COLS || p.row() < 0 || p.row() >= NUM_ROWS) return false;
 		return true;
 	}
-
-//	@Override
-//	public boolean addGameObject(String plantType, Position pos) {
-//		return false;
-//	}
 	
 	public GameItem getGameItemInPosition(Position position) {
 		return container.getGameItemInPosition(position);
@@ -210,18 +194,21 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean hasObjectInColumn(int col) {
 		return container.hasObjectInColumn(col);
 	}
+	
 	public boolean catchObject(Position position) {
-		if(catchalreadyExecuted)return false;
+		if(catchalreadyExecuted) return false;
 		
-		if( container.catchObject(position)>0) {
-			catchalreadyExecuted=true;
+		if(container.catchObject(position) > 0) {
+			catchalreadyExecuted = true;
 			return true;
 		}
 		return false;
 	}
+	
 	public void collectSuns() {
 		coins += SUN_VALUE;
 	}
+	
 	@Override
 	public boolean addGameObject(String plantType, Position pos) {
 		// TODO Auto-generated method stub

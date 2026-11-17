@@ -209,11 +209,11 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		coins += SUN_VALUE;
 	}
 	
-	@Override
+	/*@Override
 	public boolean addGameObject(String plantType, Position pos) {
 		// TODO Auto-generated method stub
 		//return addGameObject(new());
 		return true;
-	}
+	}*/
 
 }

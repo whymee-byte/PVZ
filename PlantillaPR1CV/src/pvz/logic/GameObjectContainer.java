@@ -49,7 +49,7 @@ public class GameObjectContainer {
 	}
 
 	public boolean isEmpty(Position position) {
-		return getGameObjectInPosition(position) == null;
+		return getGameObjectInPosition(position) == null || !getGameObjectInPosition(position).isAlive();
 	}
 
 	public GameObject getGameObjectInPosition(Position position) {

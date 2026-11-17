@@ -1,2 +1,3 @@
-2026/11/09-18:42:10.920 7468 Creating DB C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb since it was missing.
-2026/11/09-18:42:10.936 7468 Reusing MANIFEST C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2026/11/17-20:25:00.579 588c Reusing MANIFEST C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2026/11/17-20:25:00.582 588c Recovering log #3
+2026/11/17-20:25:00.590 588c Reusing old log C:\Users\angel\OneDrive\Escritorio\PVZ\PlantillaPR1CV\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/000003.log 

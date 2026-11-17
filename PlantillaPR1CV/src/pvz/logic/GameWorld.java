@@ -20,4 +20,5 @@ public interface GameWorld {
 	public void collectSuns();
 	void zombieDied();
 	void pushAction(GameAction action);
+	public boolean hasObjectInColumn(int col);
 }

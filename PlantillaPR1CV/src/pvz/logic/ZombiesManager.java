@@ -9,7 +9,7 @@ import utils.Position;
 
 public class ZombiesManager {
 
-	private Game game;
+	private GameWorld gw;
 
 	private Level level;
 
@@ -18,8 +18,8 @@ public class ZombiesManager {
 	private int remainingZombies;
 	private int aliveZombies;
 
-	public ZombiesManager(Game game, Level level, Random rand) {
-		this.game = game;
+	public ZombiesManager(GameWorld gw, Level level, Random rand) {
+		this.gw = gw;
 		this.level = level;
 		this.rand = rand;
 		this.remainingZombies = level.getNumberOfZombies();
@@ -42,9 +42,9 @@ public class ZombiesManager {
 	public boolean addZombie(int row) {
 		Position zombiePosition = Game.newZombiePosition(row);
 		
-		Zombie z = ZombieFactory.spawnZombie(rand,game,zombiePosition);
+		Zombie z = ZombieFactory.spawnZombie(rand,gw,zombiePosition);
 
-		boolean canAdd = remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
+		boolean canAdd = remainingZombies > 0 && shouldAddZombie() && gw.isEmpty(zombiePosition);
 
 		if(canAdd) {	
 			placeZombie(z);
@@ -54,10 +54,10 @@ public class ZombiesManager {
 	}
 
 	public boolean addZombie(String name, Position position) {
-		if (!game.isInsideBoard(position) || !game.isEmpty(position)) {
+		if (!gw.isInsideBoard(position) || !gw.isEmpty(position)) {
 			return false;
 		}
-		Zombie zombie = ZombieFactory.spawnZombie(name, game, position);
+		Zombie zombie = ZombieFactory.spawnZombie(name, gw, position);
 		if (zombie == null) {
 			return false;
 		}
@@ -67,7 +67,7 @@ public class ZombiesManager {
 	}
 
 	private void placeZombie(Zombie zombie) {
-		game.addGameObject(zombie);
+		gw.addGameObject(zombie);
 		aliveZombies++;
 	}
 	
@@ -80,7 +80,7 @@ public class ZombiesManager {
 	}
 
 	public boolean doZombiesReachedTheHouse() {
-		return game.hasObjectInColumn(-1);
+		return gw.hasObjectInColumn(-1);
 	}
 
 	public boolean allZombiesWereKilled() {

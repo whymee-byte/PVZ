@@ -11,4 +11,5 @@ public interface GameModel {
 	public boolean hasGameFinished();
 	public boolean addGameObject(String plantName, Position position,boolean cost);
 	boolean addZombie(String name, Position position);
+	public boolean catchObject(Position position);
 }

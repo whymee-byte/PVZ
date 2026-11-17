@@ -49,7 +49,7 @@ public class Sunflower extends Plant {
 		if (cyclesSinceLastCoinGeneration < COOLDOWN - 1) cyclesSinceLastCoinGeneration++;
 		else {
 			cyclesSinceLastCoinGeneration=0;
-			gw.generateCoins(GENERATED_SUN_COINS);
+			gw.generateSuns();
 		}
 	}
 	

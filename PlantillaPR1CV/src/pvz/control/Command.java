@@ -14,7 +14,8 @@ public abstract class Command {
 			new ResetCommand(),
 			new HelpCommand(),
 			new ExitCommand(),
-			new UpdateCommand()
+			new UpdateCommand(),
+			new CatchCommand()
 	);
 	
 	protected String name;

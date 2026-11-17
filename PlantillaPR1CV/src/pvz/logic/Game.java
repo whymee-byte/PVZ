@@ -10,9 +10,10 @@ import pvz.logic.gameobjects.PlantFactory;
 import utils.Position;
 
 public class Game implements GameStatus, GameWorld, GameModel {
+	private static final int INITIAL_COINS = 50;
+	private static final int SUN_VALUE = 10;
 
-	public final static int INITIAL_COINS = 50;
-	
+	private boolean catchalreadyExecuted;
 	private int cycles;
 	private int coins;
 	private Long longSeed;
@@ -20,6 +21,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private boolean playerQuit;
 	private Level level;
 	private ZombiesManager zombieManager;
+	private SunManager sunManager;
 	private GameObjectContainer container;
 	private Deque<GameAction> actions;
 	
@@ -28,7 +30,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 	
 	public String positionToString(Position position) {
-		if (!container.isEmpty(position)) return container.iconInPosition(position);
+		if (!container.isEmpty(position)) return container.positionToString(position);
 		return "";
 	}
 	
@@ -74,10 +76,12 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		executePendingActions();
 		zombieManager.addZombie();
 		container.update();
+		sunManager.update();
 		//si hay un muerto extra, se apila dentro
 		do {
 			executePendingActions();
 		} while (container.removeDead());
+		catchalreadyExecuted=false;
 		cycles++;
 	}
 
@@ -101,8 +105,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		reset(this.level,this.longSeed);
 	}
 	
-	public void generateCoins(int amount) {
-		coins += amount;
+	public void generateSuns() {
+		sunManager.addSun();
 	}
 	
 	private void buyWithCoins(int cost) {
@@ -156,8 +160,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	    }
 	}
 
-	public void addGameObject(GameObject object) {
-		container.add(object);
+	public boolean addGameObject(GameObject object) {
+		return container.add(object);
 	}
 	
 	public boolean isInsideBoard(Position p) {
@@ -165,10 +169,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return true;
 	}
 
-	@Override
-	public boolean addGameObject(String plantType, Position pos) {
-		return false;
-	}
+//	@Override
+//	public boolean addGameObject(String plantType, Position pos) {
+//		return false;
+//	}
 	
 	public GameItem getGameItemInPosition(Position position) {
 		return container.getGameItemInPosition(position);
@@ -195,6 +199,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		this.container=new GameObjectContainer();
 		this.actions = new ArrayDeque<>();
 		this.zombieManager=new ZombiesManager(this,level,rand);
+		this.sunManager=new SunManager(rand,this);
+		this.catchalreadyExecuted=false;
 	}
 	
 	public void zombieDied() {
@@ -204,4 +210,23 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean hasObjectInColumn(int col) {
 		return container.hasObjectInColumn(col);
 	}
+	public boolean catchObject(Position position) {
+		if(catchalreadyExecuted)return false;
+		
+		if( container.catchObject(position)>0) {
+			catchalreadyExecuted=true;
+			return true;
+		}
+		return false;
+	}
+	public void collectSuns() {
+		coins += SUN_VALUE;
+	}
+	@Override
+	public boolean addGameObject(String plantType, Position pos) {
+		// TODO Auto-generated method stub
+		//return addGameObject(new());
+		return true;
+	}
+
 }

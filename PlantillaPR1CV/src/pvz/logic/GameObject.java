@@ -13,6 +13,9 @@ public abstract class GameObject implements GameItem {
         this.position = position;
         this.alive = true;
     }
+    public void appendIconTo(StringBuilder text) {
+        text.append(getIcon());
+    }
 
     public boolean isInPosition(Position other) {
         return this.position.equals(other);
@@ -39,7 +42,9 @@ public abstract class GameObject implements GameItem {
     public void update() {
     	
     }
-    
+    public boolean catchObject(Position position) {
+    	return false;
+    }
     public abstract void onExit();
 
     @Override

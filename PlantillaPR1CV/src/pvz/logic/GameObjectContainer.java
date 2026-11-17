@@ -11,9 +11,20 @@ public class GameObjectContainer {
 		gameObjects = new ArrayList<>();
 	}
 
-	public void add(GameObject object) {
+	public boolean add(GameObject object) {
 		this.gameObjects.add(object);
 		object.onEnter();
+		return true;
+		//placeholder
+	}
+	public int catchObject(Position position) {
+		int amountOfSunsCatched=0;
+		for (int i = 0; i < gameObjects.size(); i++) {
+			GameObject obj = gameObjects.get(i);
+			if(obj.catchObject(position)) amountOfSunsCatched++;
+		}
+		return amountOfSunsCatched;
+		
 	}
 
 	public void update() {
@@ -64,11 +75,14 @@ public class GameObjectContainer {
 		return !gameObjects.isEmpty();
 	}
 	
-	public String iconInPosition(Position position) {
+	public String positionToString(Position position) {
+		StringBuilder text=new StringBuilder();
 		for (GameObject obj : gameObjects) {
-			if (obj.isInPosition(position)) return obj.getIcon();
+			if (obj.isAlive() && obj.isInPosition(position)) {
+				obj.appendIconTo(text);
+			}
 		}
-		return "";
+		return text.toString();
 	}
 	
 	public boolean hasObjectInColumn(int col) {

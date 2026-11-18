@@ -1,0 +1,204 @@
+[
+  {
+    "case": "00-easy_25",
+    "configuration": "filename",
+    "level": "easy",
+    "seed": "25",
+    "exit": 0,
+    "match": false,
+    "last_cycle_expected": "18",
+    "last_cycle_actual": "18",
+    "errors_expected": [
+      "[ERROR] Error: No sun in (7, 3)",
+      "[ERROR] Error: No sun in (3, 0)"
+    ],
+    "errors_actual": [
+      "[ERROR] Error: No sun in (7, 3)",
+      "[ERROR] Error: No sun in (3, 0)"
+    ],
+    "expected_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Player wins!"
+    ],
+    "actual_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Player wins!"
+    ],
+    "expected_lines": 617,
+    "actual_lines": 619
+  },
+  {
+    "case": "01-easy_25",
+    "configuration": "filename",
+    "level": "easy",
+    "seed": "25",
+    "exit": 0,
+    "match": true,
+    "last_cycle_expected": "0",
+    "last_cycle_actual": "0",
+    "errors_expected": [
+      "[ERROR] Error: Unknown command",
+      "[ERROR] Error: Unknown command"
+    ],
+    "errors_actual": [
+      "[ERROR] Error: Unknown command",
+      "[ERROR] Error: Unknown command"
+    ],
+    "expected_tail": [
+      "[DEBUG] Executing: e",
+      "",
+      "Game over",
+      "Player leaves the game"
+    ],
+    "actual_tail": [
+      "[DEBUG] Executing: e",
+      "",
+      "Game over",
+      "Player leaves the game"
+    ],
+    "expected_lines": 263,
+    "actual_lines": 263
+  },
+  {
+    "case": "02-easy_25",
+    "configuration": "filename",
+    "level": "easy",
+    "seed": "25",
+    "exit": 0,
+    "match": false,
+    "last_cycle_expected": "10",
+    "last_cycle_actual": "10",
+    "errors_expected": [
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters"
+    ],
+    "errors_actual": [
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters"
+    ],
+    "expected_tail": [
+      "[DEBUG] Executing: e",
+      "",
+      "Game over",
+      "Player leaves the game"
+    ],
+    "actual_tail": [
+      "[DEBUG] Executing: e",
+      "",
+      "Game over",
+      "Player leaves the game"
+    ],
+    "expected_lines": 293,
+    "actual_lines": 293
+  },
+  {
+    "case": "03-hard_17",
+    "configuration": "filename",
+    "level": "hard",
+    "seed": "17",
+    "exit": 0,
+    "match": true,
+    "last_cycle_expected": "14",
+    "last_cycle_actual": "14",
+    "errors_expected": [
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters"
+    ],
+    "errors_actual": [
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters"
+    ],
+    "expected_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Zombies win!"
+    ],
+    "actual_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Zombies win!"
+    ],
+    "expected_lines": 298,
+    "actual_lines": 298
+  },
+  {
+    "case": "04-insane_360",
+    "configuration": "filename",
+    "level": "insane",
+    "seed": "360",
+    "exit": 0,
+    "match": true,
+    "last_cycle_expected": "12",
+    "last_cycle_actual": "12",
+    "errors_expected": [
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters"
+    ],
+    "errors_actual": [
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters",
+      "[ERROR] Error: Missing parameters"
+    ],
+    "expected_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Zombies win!"
+    ],
+    "actual_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Zombies win!"
+    ],
+    "expected_lines": 265,
+    "actual_lines": 265
+  },
+  {
+    "case": "05-easy_25",
+    "configuration": "filename",
+    "level": "easy",
+    "seed": "25",
+    "exit": 0,
+    "match": false,
+    "last_cycle_expected": "19",
+    "last_cycle_actual": "19",
+    "errors_expected": [
+      "[ERROR] Error: No sun in (5, 0)",
+      "[ERROR] Error: No sun in (7, 1)",
+      "[ERROR] Error: Not enough suncoins",
+      "[ERROR] Error: No sun in (3, 0)",
+      "[ERROR] Error: No sun in (2, 3)",
+      "[ERROR] Error: No sun in (3, 2)"
+    ],
+    "errors_actual": [
+      "[ERROR] Error: No sun in (5, 0)",
+      "[ERROR] Error: No sun in (7, 1)",
+      "[ERROR] Error: Could not add plant",
+      "[ERROR] Error: No sun in (3, 0)",
+      "[ERROR] Error: No sun in (2, 3)",
+      "[ERROR] Error: No sun in (3, 0)"
+    ],
+    "expected_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Zombies win!"
+    ],
+    "actual_tail": [
+      "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
+      "",
+      "Game over",
+      "Zombies win!"
+    ],
+    "expected_lines": 580,
+    "actual_lines": 582
+  }
+]

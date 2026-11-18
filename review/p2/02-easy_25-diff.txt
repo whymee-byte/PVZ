@@ -1,0 +1,31 @@
+--- expected
+
++++ actual
+
+@@ -32,6 +32,7 @@
+
+ [h]elp: print this help message
+ [e]xit: terminate the program
+ [n]one | "": skips cycle
++
+ Command > 
+ [DEBUG] Executing: l
+ 
+@@ -39,15 +40,14 @@
+
+ [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+ [W]all-[N]ut: cost='50' suncoins, damage='0', endurance='10'
+ [C]herry-Bomb: cost='50' suncoins, damage='10', endurance='2'
+-
+ Command > 
+ [DEBUG] Executing: lz
+ 
++Available zombies:
+ Zombie: speed='2', damage='1', endurance='5'
+ BucketHead Zombie: speed='4', damage='1', endurance='8'
+ Sporty Zombie: speed='1', damage='1', endurance='2'
+ Explosive Zombie: speed='2', damage='1', endurance='5'
+-
+ Command > 
+ [DEBUG] Executing: a
+ 

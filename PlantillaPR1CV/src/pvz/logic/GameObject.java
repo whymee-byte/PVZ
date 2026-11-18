@@ -42,6 +42,9 @@ public abstract class GameObject implements GameItem {
     public void update() {
     	
     }
+    public boolean blocksMovement() {
+		return true;
+	}
     
     public boolean catchObject(Position position) { //Reescrito por Sun
     	return false;

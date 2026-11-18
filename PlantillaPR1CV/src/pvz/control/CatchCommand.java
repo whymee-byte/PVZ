@@ -34,7 +34,10 @@ public class CatchCommand extends Command {
 	
 	@Override
 	public void execute(GameModel model, GameView view) {
-		model.catchObject(position);
-		view.showGame();
+		if(model.catchObject(position)) {
+			view.showGame();
+		}else {
+			view.showError(Messages.NO_CATCHABLE_IN_POSITION.formatted(position.column(), position.row()));
+		}
 	}
 }

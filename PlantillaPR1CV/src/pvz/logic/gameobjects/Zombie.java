@@ -24,11 +24,7 @@ public abstract class Zombie extends GameObject{
 
 	public Zombie(GameWorld gw, Position position) {
 		super(gw,position);
-	}
-
-	public void startMovementNextCycle() {
-		// El update del turno de colocación llevará el contador a cero.
-		cyclesSinceLastMovement = -1;
+		cyclesSinceLastMovement=-1;
 	}
 
 	public boolean isInPosition(Position position) {
@@ -47,17 +43,16 @@ public abstract class Zombie extends GameObject{
 		health -= damage;
 	}
 
-	public void update()
-	{
+	public void update(){
 		cyclesSinceLastMovement++;
 		if(canMove()) {
 			if (cyclesSinceLastMovement >= moveEveryCycles ) {
 				cyclesSinceLastMovement = 0;
 				move();
 			}
-		} else {
-			attack();
 		}
+		attack();
+
 	}
 
 	private boolean canMove() {

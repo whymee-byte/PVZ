@@ -13,5 +13,7 @@ public interface GameStatus {
 	public boolean zombiesWin();
 	public boolean playerWins();
 	public boolean playerQuits();
+	public int generatedSuns();
+	public int getCaughtSuns() ;
 	
 }

@@ -3,8 +3,7 @@ package pvz.control;
 import pvz.logic.Game;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
-import pvz.view.Messages;
-import utils.Position;
+
 
 public class Controller {
 

@@ -1,0 +1,7 @@
+equals coordinates=true
+sun icon= S[%02d][11]
+first catch=true coins=60 caught=1
+second catch=false coins=60 caught=1
+caught after reset=1
+two ages rendered= S[%02d][10] S[%02d][11]
+dead first hides live plant=true

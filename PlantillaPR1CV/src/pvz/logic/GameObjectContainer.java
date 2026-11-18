@@ -49,7 +49,12 @@ public class GameObjectContainer {
 	}
 
 	public boolean isEmpty(Position position) {
-		return getGameObjectInPosition(position) == null || !getGameObjectInPosition(position).isAlive();
+		for (GameObject obj : gameObjects) {
+			if (obj.isAlive() && obj.isInPosition(position) && obj.blocksMovement()) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public GameObject getGameObjectInPosition(Position position) {

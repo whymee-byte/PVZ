@@ -1,0 +1,58 @@
+--- expected
+
++++ actual
+
+@@ -32,6 +32,7 @@
+
+ [h]elp: print this help message
+ [e]xit: terminate the program
+ [n]one | "": skips cycle
++
+ Command > 
+ [DEBUG] Executing: H
+ 
+@@ -46,6 +47,7 @@
+
+ [h]elp: print this help message
+ [e]xit: terminate the program
+ [n]one | "": skips cycle
++
+ Command > 
+ [DEBUG] Executing: help
+ 
+@@ -60,6 +62,7 @@
+
+ [h]elp: print this help message
+ [e]xit: terminate the program
+ [n]one | "": skips cycle
++
+ Command > 
+ [DEBUG] Executing: Help
+ 
+@@ -74,6 +77,7 @@
+
+ [h]elp: print this help message
+ [e]xit: terminate the program
+ [n]one | "": skips cycle
++
+ Command > 
+ [DEBUG] Executing: l
+ 
+@@ -81,7 +85,6 @@
+
+ [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+ [W]all-[N]ut: cost='50' suncoins, damage='0', endurance='10'
+ [C]herry-Bomb: cost='50' suncoins, damage='10', endurance='2'
+-
+ Command > 
+ [DEBUG] Executing: List
+ 
+@@ -89,7 +92,6 @@
+
+ [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+ [W]all-[N]ut: cost='50' suncoins, damage='0', endurance='10'
+ [C]herry-Bomb: cost='50' suncoins, damage='10', endurance='2'
+-
+ Command > 
+ [DEBUG] Executing: add sunflower 0 1
+ 

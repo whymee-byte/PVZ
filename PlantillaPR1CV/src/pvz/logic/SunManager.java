@@ -18,10 +18,11 @@ public class SunManager {
 		
 	}
 	void update() {
-		cyclesSinceLastSunGeneration++;
 		if(cyclesSinceLastSunGeneration==SUN_CYCLES) {
 			addSun();
 			cyclesSinceLastSunGeneration=1;
+		} else {
+			cyclesSinceLastSunGeneration++;
 		}
 	}
 	void addSun() {
@@ -30,5 +31,8 @@ public class SunManager {
 		Position position=new Position(row,col);
 		gw.addGameObject(new Sun(gw,position));
 		generatedSuns++;
+	}
+	int generatedSuns() {
+		return generatedSuns;
 	}
 }

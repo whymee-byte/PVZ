@@ -9,13 +9,13 @@ public abstract class Command {
 			new AddPlantCommand(),
 			new AddZombieCommand(),
 			new AddPlantCheatCommand(),
+			new CatchCommand(),
 			new ListPlantsCommand(),
 			new ListZombiesCommand(),
 			new ResetCommand(),
 			new HelpCommand(),
 			new ExitCommand(),
-			new UpdateCommand(),
-			new CatchCommand()
+			new UpdateCommand()
 	);
 	
 	protected String name;

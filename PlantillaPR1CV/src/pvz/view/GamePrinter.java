@@ -45,6 +45,8 @@ public class GamePrinter implements GameView {
 		buffer.append(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
 		buffer.append(String.format(Messages.NUMBER_OF_COINS, game.getCoins()));
 		buffer.append(String.format(Messages.REMAINING_ZOMBIES, game.getRemainingZombies()));
+		buffer.append(String.format(Messages.GENERATED_SUNS, game.generatedSuns()));
+		buffer.append(String.format(Messages.CAUGHT_SUNS, game.getCaughtSuns()));
 		return buffer.toString();
 	}
 

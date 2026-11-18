@@ -44,7 +44,7 @@ public class ZombiesManager {
 		
 		Zombie z = ZombieFactory.spawnZombie(rand,gw,zombiePosition);
 
-		boolean canAdd = remainingZombies > 0 && shouldAddZombie() && gw.isEmpty(zombiePosition);
+		boolean canAdd = remainingZombies > 0 && shouldAddZombie();
 
 		if(canAdd) {	
 			placeZombie(z);
@@ -61,7 +61,6 @@ public class ZombiesManager {
 		if (zombie == null) {
 			return false;
 		}
-		zombie.startMovementNextCycle();
 		placeZombie(zombie);
 		return true;
 	}

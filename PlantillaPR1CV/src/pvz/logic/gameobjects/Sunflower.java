@@ -46,10 +46,11 @@ public class Sunflower extends Plant {
 	}
 
 	public void update() {
-		if (cyclesSinceLastCoinGeneration < COOLDOWN - 1) cyclesSinceLastCoinGeneration++;
-		else {
-			cyclesSinceLastCoinGeneration=0;
+		if (cyclesSinceLastCoinGeneration == COOLDOWN) {
 			gw.generateSuns();
+			cyclesSinceLastCoinGeneration=1;
+		} else {
+			cyclesSinceLastCoinGeneration++;
 		}
 	}
 	

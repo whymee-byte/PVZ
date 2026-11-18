@@ -16,6 +16,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private boolean catchalreadyExecuted;
 	private int cycles;
 	private int coins;
+	private int caughtSuns;
 	private Long longSeed;
 	private Random rand;
 	private boolean playerQuit;
@@ -30,8 +31,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 	
 	public String positionToString(Position position) {
-		if (!container.isEmpty(position)) return container.positionToString(position);
-		return "";
+		return container.positionToString(position);
 	}
 	
 	public boolean hasGameFinished() {
@@ -73,7 +73,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		catchalreadyExecuted=false;
 		cycles++;
 	}
-
+	public int generatedSuns() {
+		return sunManager.generatedSuns();
+	}
 	@Override
 	public void pushAction(GameAction action) {
 		actions.addLast(action);
@@ -178,6 +180,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		this.longSeed=seed;
 		this.cycles=0;
 		this.coins=INITIAL_COINS;
+		this.caughtSuns = 0;
 		this.playerQuit=false;
 		this.rand=new Random(seed);
 		this.container=new GameObjectContainer();
@@ -197,14 +200,17 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	
 	public boolean catchObject(Position position) {
 		if(catchalreadyExecuted) return false;
-		
-		if(container.catchObject(position) > 0) {
+		int caught=container.catchObject(position);
+		if(caught > 0) {
 			catchalreadyExecuted = true;
+			caughtSuns+=caught;
 			return true;
 		}
 		return false;
 	}
-	
+	public int getCaughtSuns() {
+		return caughtSuns;
+	}
 	public void collectSuns() {
 		coins += SUN_VALUE;
 	}

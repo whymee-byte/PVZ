@@ -1,0 +1,87 @@
+package pvz.logic.gameobjects;
+
+import pvz.logic.GameWorld;
+import pvz.logic.actions.ExplosionAction;
+import pvz.view.Messages;
+import utils.Position;
+
+public class CherryBomb extends Plant{
+	public static final int COST = 50;
+	private static final int DAMAGE = 10;
+	private static final int INITIAL_HEALTH = 2;
+	private static final int COOLDOWN = 2;
+	private int cycle;
+	private static final String SYMBOL = Messages.CHERRY_BOMB_SYMBOL;
+	private static final String NAME = Messages.CHERRY_BOMB_NAME;
+	private static final String NAME_AND_SHORT = Messages.CHERRY_BOMB_NAME_SHORTCUT;
+	
+	CherryBomb(){
+		this(null,null);
+	}
+	protected CherryBomb(GameWorld game, Position position) {
+		super(game, position);
+		this.health = INITIAL_HEALTH;
+		cycle=-1;
+	}
+
+	@Override
+	public String shortName() {
+		return SYMBOL;
+	}
+
+	@Override
+	public int getCost() {
+		return COST;
+	}
+
+	@Override
+	public String longName() {
+		return NAME;
+	}
+
+	@Override
+	public Plant create(GameWorld game, Position position) {
+		return new CherryBomb(game,position);
+	}
+
+	@Override
+	public String getIcon() {
+		String symb;
+		if(cycle==1)symb= SYMBOL.toUpperCase();
+		else symb= SYMBOL.toLowerCase();
+		return String.format(Messages.GAME_OBJECT_ICON, symb,health);
+	}
+
+	@Override
+	public void onEnter() {
+		
+	}
+
+	@Override
+	public void update() {
+		cycle++;
+		if(cycle==COOLDOWN) {
+			gw.pushAction(new ExplosionAction(DAMAGE, position, true));
+			setAlive(false);
+		}
+	}
+
+	@Override
+	public void onExit() {
+		
+	}
+	@Override
+	public int getEndurance() {
+		return INITIAL_HEALTH;
+	}
+
+	@Override
+	public int getDamage() {
+		return DAMAGE;
+	}
+	
+	@Override
+	public String nameAndShort() {
+		return NAME_AND_SHORT;
+	}
+}

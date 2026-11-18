@@ -1,11 +1,10 @@
 package utils;
 
-import pvz.logic.GameObject;
 
 public class Position {
 	private int row;
 	private int col;
-	
+	private final static int CONST=1000000007;
 	public Position(int row, int col) {
 		this.row = row;
 		this.col = col;
@@ -51,10 +50,11 @@ public class Position {
 	public boolean isVerticallyAligned(Position p) {
 		return col == p.column();
 	}
+	@Override
 	public int hashCode() {
-		return 31 *row+col;
+		return CONST *row+col;
 	}
-	public boolean equals(GameObject go) {
-		return go.getPosition().hashCode()==this.hashCode();
+	public boolean equals(Position other) {
+		return other != null && other.row()==row() && other.column()==column();
 	}
 }

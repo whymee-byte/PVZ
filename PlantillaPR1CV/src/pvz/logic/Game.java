@@ -64,8 +64,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public void update() {
 		executePendingActions();
 		zombieManager.addZombie();
-		container.update();
 		sunManager.update();
+		container.update();
 		//si hay un muerto extra, se apila dentro
 		do {
 			executePendingActions();

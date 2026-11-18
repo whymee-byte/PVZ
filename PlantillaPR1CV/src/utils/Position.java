@@ -1,5 +1,7 @@
 package utils;
 
+import pvz.logic.GameObject;
+
 public class Position {
 	private int row;
 	private int col;
@@ -18,7 +20,7 @@ public class Position {
 	}
 	
 	public String toString() {
-		return "";
+		return "(" + col +"," +row+")";
 	}
 	
 	public Position left() {
@@ -49,12 +51,10 @@ public class Position {
 	public boolean isVerticallyAligned(Position p) {
 		return col == p.column();
 	}
-	
-	public boolean equals(Position p) {
-		if(isVerticallyAligned(p) && isHorizontallyAligned(p)) {
-			return true;
-		} else {
-			return false;
-		}
+	public int hashCode() {
+		return 31 *row+col;
+	}
+	public boolean equals(GameObject go) {
+		return go.getPosition().hashCode()==this.hashCode();
 	}
 }

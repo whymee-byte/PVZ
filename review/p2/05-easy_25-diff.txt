@@ -56,8 +56,24 @@
  Command > 
  [DEBUG] Executing: add sunflower 0 1
  
-@@ -312,7 +314,7 @@
+@@ -264,7 +266,7 @@
 
+ Command > 
+ [DEBUG] Executing: c 5 0
+ 
+-[ERROR] Error: No sun in (5, 0)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
+ 
+ Command > 
+ [DEBUG] Executing: 
+@@ -307,17 +309,17 @@
+
+ Command > 
+ [DEBUG] Executing: c 7 1
+ 
+-[ERROR] Error: No sun in (7, 1)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
+ 
  Command > 
  [DEBUG] Executing: a p 0 2
  
@@ -66,6 +82,22 @@
  
  Command > 
  [DEBUG] Executing: c 3 0
+ 
+-[ERROR] Error: No sun in (3, 0)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
+ 
+ Command > 
+ [DEBUG] Executing: 
+@@ -360,7 +362,7 @@
+
+ Command > 
+ [DEBUG] Executing: c 2 3
+ 
+-[ERROR] Error: No sun in (2, 3)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
+ 
+ Command > 
+ [DEBUG] Executing: 
 @@ -477,9 +479,9 @@
 
     ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
@@ -76,7 +108,7 @@
 -[ERROR] Error: No sun in (3, 2)
 +[DEBUG] Executing: c 3 0
 +
-+[ERROR] Error: No sun in (3, 0)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
  
  Command > 
  [DEBUG] Executing: a p 0 0

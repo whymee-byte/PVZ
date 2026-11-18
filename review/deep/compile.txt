@@ -1,0 +1,4 @@
+C:\Users\ouyan\PVZ\PlantillaPR1CV\src\pvz\logic\Game.java:30: warning: [this-escape] possible 'this' escape before subclass is fully initialized
+		reset(level, seed);
+		     ^
+1 warning

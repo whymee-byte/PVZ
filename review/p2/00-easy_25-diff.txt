@@ -56,3 +56,23 @@
  Command > 
  [DEBUG] Executing: add sunflower 0 1
  
+@@ -283,7 +285,7 @@
+
+ Command > 
+ [DEBUG] Executing: c 7 3
+ 
+-[ERROR] Error: No sun in (7, 3)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
+ 
+ Command > 
+ [DEBUG] Executing: 
+@@ -592,7 +594,7 @@
+
+ Command > 
+ [DEBUG] Executing: c 3 0
+ 
+-[ERROR] Error: No sun in (3, 0)
++[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
+ 
+ Command > 
+ [DEBUG] Executing: 

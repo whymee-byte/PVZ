@@ -13,8 +13,8 @@
       "[ERROR] Error: No sun in (3, 0)"
     ],
     "errors_actual": [
-      "[ERROR] Error: No sun in (7, 3)",
-      "[ERROR] Error: No sun in (3, 0)"
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position",
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position"
     ],
     "expected_tail": [
       "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",
@@ -179,12 +179,12 @@
       "[ERROR] Error: No sun in (3, 2)"
     ],
     "errors_actual": [
-      "[ERROR] Error: No sun in (5, 0)",
-      "[ERROR] Error: No sun in (7, 1)",
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position",
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position",
       "[ERROR] Error: Could not add plant",
-      "[ERROR] Error: No sun in (3, 0)",
-      "[ERROR] Error: No sun in (2, 3)",
-      "[ERROR] Error: No sun in (3, 0)"
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position",
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position",
+      "[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position"
     ],
     "expected_tail": [
       "   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ",

@@ -266,7 +266,7 @@ Caught suns: 2
 Command > 
 [DEBUG] Executing: c 5 0
 
-[ERROR] Error: No sun in (5, 0)
+[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
 
 Command > 
 [DEBUG] Executing: 
@@ -309,7 +309,7 @@ Caught suns: 2
 Command > 
 [DEBUG] Executing: c 7 1
 
-[ERROR] Error: No sun in (7, 1)
+[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
 
 Command > 
 [DEBUG] Executing: a p 0 2
@@ -319,7 +319,7 @@ Command >
 Command > 
 [DEBUG] Executing: c 3 0
 
-[ERROR] Error: No sun in (3, 0)
+[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
 
 Command > 
 [DEBUG] Executing: 
@@ -362,7 +362,7 @@ Caught suns: 2
 Command > 
 [DEBUG] Executing: c 2 3
 
-[ERROR] Error: No sun in (2, 3)
+[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
 
 Command > 
 [DEBUG] Executing: 
@@ -481,7 +481,7 @@ Caught suns: 4
 Command > 
 [DEBUG] Executing: c 3 0
 
-[ERROR] Error: No sun in (3, 0)
+[ERROR] Error: Unable to catch a sun, either you already caught one or there is none in that position
 
 Command > 
 [DEBUG] Executing: a p 0 0

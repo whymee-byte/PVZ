@@ -37,7 +37,8 @@ public class CatchCommand extends Command {
 		if(model.catchObject(position)) {
 			view.showGame();
 		}else {
-			view.showError(Messages.NO_CATCHABLE_IN_POSITION.formatted(position.column(), position.row()));
+			view.showError("Unable to catch a sun, either you already caught one or there is none in that position");
+			//view.showError(Messages.NO_CATCHABLE_IN_POSITION.formatted(position.column(), position.row()));
 		}
 	}
 }
